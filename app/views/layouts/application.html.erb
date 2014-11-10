@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Norris Nakagaki Portfolio</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<main>
+		<div class="intro">
+			<h1>Norris Nakagaki</h1>
+			<h2>Web Developer</h2>
+			<p>Ruby on Rails and Backbone.js!</p>
+		</div>
+		<div class="projects"></div>
+		<div class="about"></div>
+		<div class="contact"></div>
+	</main>
+
+	<div class="side-bar">
+		<img src="<%= image_url("norris-nakagaki-cropped.png") %>">
+		<ul>
+			<li>Intro</li>
+			<li>Projects</li>
+			<li>About</li>
+			<li>Contact</li>
+		</ul>
+	</div>
+
+	<%= yield %>
+
+</body>
+
+<script>
+
+</script>
+
+</html>
