@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="jquery-2.1.1.js"></script>
+  <script src="keymaster.js"></script>
+  <script src="utils.js"></script>
+  <script src="movingObject.js"></script>
+  <script src="asteroid.js"></script>
+  <script src="bullets.js"></script>
+  <script src="ship.js"></script>
+  <script src="hugeAsteroid.js"></script>
+  <script src="game.js"></script>
+  <script src="gameView.js"></script>
+  <script src="mouse.js"></script>
+  <script src="audioVisualizer.js"></script>
+  <script src="preloadImages.js"></script>
+  <script src="preloadMusic.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="asteroids.css">
+
+</head>
+  <body>
+    <main>
+      <h1 class="title">Asteroids</h1>
+      <h2 class="newGame">New Game</h2>
+      <h2 class="setting">Settings</h2>
+    </main>
+
+    <canvas id="analyser_render"></canvas>
+
+    <canvas id="game-canvas"></canvas>
+
+    <div class="score">
+      <ul>
+        <li class="final-score"></li>
+        <li class="shots-fired"></li>
+        <li class="asteroids-destroyed"></li>
+      </ul>
+    </div>
+
+    <h2 class="restart">Restart</h2>
+    <h2 class="main-menu">Main Menu</h2>
+
+    <script>
+      Asteroids.Music.visualize(Asteroids.Music.menuAudio);
+      Asteroids.Music.menuAudio.oncanplaythrough = Asteroids.Music.menuAudio.play();
+
+      // misha mishenko - Vakning að elska
+      // Misha Mishenko - Vor í mig
+
+      $(".newGame").on("click", function () {
+        Asteroids.CacheCanvas = {};
+        var context, image;
+
+        var menu = Asteroids.CacheCanvas.menu = document.createElement('canvas');
+        menu.setAttribute('height', window.innerHeight);
+        menu.setAttribute('width', window.innerWidth);
+        context = menu.getContext('2d');
+        image = Asteroids.Images.menu;
+        context.drawImage(image,0,0,menu.width,
+                          image.height/image.width*menu.width);
+        var gameMode2 = Asteroids.CacheCanvas.gameMode2 = document.createElement('canvas');
+        gameMode2.setAttribute('height', window.innerHeight);
+        gameMode2.setAttribute('width', window.innerWidth);
+        context = gameMode2.getContext('2d');
+        image = Asteroids.Images.gameMode2;
+        context.drawImage(image,0,0,gameMode2.width,
+                          image.height/image.width*gameMode2.width);
+        var hugeAsteroid = Asteroids.CacheCanvas.hugeAsteroid = document.createElement('canvas');
+        hugeAsteroid.setAttribute('height', 1571);
+        hugeAsteroid.setAttribute('width', 1581);
+        context = hugeAsteroid.getContext('2d');
+        image = Asteroids.Images.hugeAsteroid;
+        context.drawImage(image,0,0,1581,1571);
+
+
+        window.canvasEl = document.getElementById("game-canvas");
+        window.canvasHeight = canvasEl.height = window.innerHeight;
+        window.canvasWidth = canvasEl.width = window.innerWidth;
+        window.ctx = canvasEl.getContext("2d");
+        if (typeof window.ast === "undefined") {
+          window.ast = new Asteroids.GameView(ctx, canvasHeight, canvasWidth);
+        }
+
+        ast.game = new Asteroids.Game(canvasWidth, canvasHeight);
+        ast.bindKeyHandlers();
+        window.cancelAnimationFrame(requestID)
+        $("canvas").toggleClass("playtime");
+        $("main").toggleClass("playtime");
+
+        Asteroids.Music.menuAudio.pause();
+        Asteroids.Music.menuAudio.currentTime = 0;
+
+        ast.currGameAudio = Asteroids.Music.gameAudio1
+
+        ast.currGameAudio.currentTime = 4;
+        ast.currGameAudio.oncanplaythrough = ast.currGameAudio.play();
+        ast.currGameAudio.addEventListener('ended', function() {
+          this.currentTime = 0;
+          this.play();
+        }, false);
+        ast.start();
+      })
+    </script>
+  </body>
+</html>
