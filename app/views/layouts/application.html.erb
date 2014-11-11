@@ -106,6 +106,7 @@
     $("div.window").addClass("hide-overflow");
     Asteroids.Music.menuAudio.volume = 1;
     Asteroids.Music.menuAudio.currentTime = 0;
+    Asteroids.Music.menuAudio.play();
   });
 
   $("div.shadow").on("click", function (event) {
@@ -115,6 +116,9 @@
     $("div.asteroids").addClass("hidden");
     Asteroids.Music.menuAudio.pause();
     Asteroids.Music.menuAudio.currentTime = 0;
+    if (typeof window.ast !== "undefined") {
+      window.ast.closeGame();
+    }
   });
 </script>
 

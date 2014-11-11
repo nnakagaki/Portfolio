@@ -192,5 +192,22 @@
     }
   };
 
+  AsteroidView.prototype.closeGame = function () {
+    console.log("here")
+    if (typeof this.intID !== "undefined") {
+      window.clearInterval(this.intID);
+    }
+
+    this.currGameAudio.pause();
+    this.currGameAudio.currentTime = 0;
+
+    this.game = new Asteroids.Game(canvasWidth, canvasHeight);
+    $('.main-menu').removeClass('paused');
+    $('.restart').removeClass('paused');
+    $("canvas").removeClass("playtime");
+    $("main").removeClass("playtime");
+    key.unbind('space, esc, p');
+  };
+
 
 })();
