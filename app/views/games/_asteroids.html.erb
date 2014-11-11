@@ -1,0 +1,83 @@
+<main>
+  <h1 class="title">Asteroids</h1>
+  <h2 class="newGame">New Game</h2>
+  <h2 class="setting">Settings</h2>
+</main>
+
+<canvas id="analyser_render"></canvas>
+
+<canvas id="game-canvas"></canvas>
+
+<div class="score">
+  <ul>
+    <li class="final-score"></li>
+    <li class="shots-fired"></li>
+    <li class="asteroids-destroyed"></li>
+  </ul>
+</div>
+
+<h2 class="restart">Restart</h2>
+<h2 class="main-menu">Main Menu</h2>
+
+<script>
+  Asteroids.Music.visualize(Asteroids.Music.menuAudio);
+  Asteroids.Music.menuAudio.oncanplaythrough = Asteroids.Music.menuAudio.play();
+  Asteroids.Music.menuAudio.volume = 0;
+
+  // misha mishenko - Vakning að elska
+  // Misha Mishenko - Vor í mig
+
+  $(".newGame").on("click", function () {
+    Asteroids.CacheCanvas = {};
+    var context, image;
+
+    var menu = Asteroids.CacheCanvas.menu = document.createElement('canvas');
+    menu.setAttribute('height', window.innerHeight * 0.8);
+    menu.setAttribute('width', window.innerWidth * 0.8);
+    context = menu.getContext('2d');
+    image = Asteroids.Images.menu;
+    context.drawImage(image,0,0,menu.width,
+                      image.height/image.width*menu.width);
+    var gameMode2 = Asteroids.CacheCanvas.gameMode2 = document.createElement('canvas');
+    gameMode2.setAttribute('height', window.innerHeight * 0.8);
+    gameMode2.setAttribute('width', window.innerWidth * 0.8);
+    context = gameMode2.getContext('2d');
+    image = Asteroids.Images.gameMode2;
+    context.drawImage(image,0,0,gameMode2.width,
+                      image.height/image.width*gameMode2.width);
+    var hugeAsteroid = Asteroids.CacheCanvas.hugeAsteroid = document.createElement('canvas');
+    hugeAsteroid.setAttribute('height', 1571);
+    hugeAsteroid.setAttribute('width', 1581);
+    context = hugeAsteroid.getContext('2d');
+    image = Asteroids.Images.hugeAsteroid;
+    context.drawImage(image,0,0,1581,1571);
+
+
+    window.canvasEl = document.getElementById("game-canvas");
+    window.canvasHeight = canvasEl.height = window.innerHeight * 0.8;
+    window.canvasWidth = canvasEl.width = window.innerWidth * 0.8;
+    window.ctx = canvasEl.getContext("2d");
+    if (typeof window.ast === "undefined") {
+      window.ast = new Asteroids.GameView(ctx, canvasHeight, canvasWidth);
+    }
+
+    ast.game = new Asteroids.Game(canvasWidth, canvasHeight);
+    ast.bindKeyHandlers();
+    window.cancelAnimationFrame(requestID)
+    $("canvas").toggleClass("playtime");
+    $("main").toggleClass("playtime");
+
+    Asteroids.Music.menuAudio.pause();
+    Asteroids.Music.menuAudio.currentTime = 0;
+
+    ast.currGameAudio = Asteroids.Music.gameAudio1
+
+    ast.currGameAudio.currentTime = 4;
+    ast.currGameAudio.oncanplaythrough = ast.currGameAudio.play();
+    ast.currGameAudio.addEventListener('ended', function() {
+      this.currentTime = 0;
+      this.play();
+    }, false);
+    ast.start();
+  })
+</script>

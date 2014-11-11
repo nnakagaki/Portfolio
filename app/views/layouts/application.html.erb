@@ -2,38 +2,99 @@
 <html>
 <head>
   <title>Norris Nakagaki Portfolio</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="shadow hidden"></div>
+  <div class="window">
 	<main>
 		<div class="intro">
 			<h1>Norris Nakagaki</h1>
 			<h2>Web Developer</h2>
 			<p>Ruby on Rails and Backbone.js!</p>
 		</div>
-		<div class="projects"></div>
-		<div class="about"></div>
-		<div class="contact"></div>
+		<div class="projects">
+      <h1>Projects</h1>
+      <ul>
+        <li class="LLC"><img src="<%= image_url("LLC.jpeg") %>"><h1>Life Long Connections</h1></li>
+        <li class="asteroids"><video class="asteroids" src="<%= video_url("asteroids_gameplay_editted2.mp4") %>"></video><h1>Asteroids</h1></li>
+        <li></li>
+        <li></li>
+        <div class="clear"></div>
+      </ul>
+    </div>
+		<div class="about">
+      <h1>About</h1>
+    </div>
+		<div class="contact">
+      <h1>Contact me</h1>
+    </div>
 	</main>
+  </div>
 
 	<div class="side-bar">
+    <div class="top-curve"></div>
+    <div class="top-curve2"></div>
+    <div class="cover-box"></div>
+    <h1>Norris Nakagaki</h1>
+    <div class="triangle"></div>
+    <div class="top-circle"></div>
 		<img src="<%= image_url("norris-nakagaki-cropped.png") %>">
 		<ul>
-			<li>Intro</li>
-			<li>Projects</li>
-			<li>About</li>
-			<li>Contact</li>
+			<li><div class="right-arrow"></div>Intro</li>
+			<li><div class="right-arrow"></div>Projects</li>
+			<li><div class="right-arrow"></div>About</li>
+			<li><div class="right-arrow"></div>Contact</li>
 		</ul>
 	</div>
+
+  <div class="asteroids hidden">
+  <%= render('games/asteroids') %>
+  </div>
 
 	<%= yield %>
 
 </body>
 
 <script>
+  $("video.asteroids").on("mouseenter", function (event) {
+    if (event.currentTarget.readyState === 4) {
+      event.currentTarget.play();
+    }
+  });
 
+  $("video.asteroids").on("mouseleave", function (event) {
+    if (event.currentTarget.readyState === 4) {
+      event.currentTarget.pause();
+      event.currentTarget.currentTime = 0;
+    }
+  });
+
+  $("div.projects li.LLC").on("click", function (event) {
+    $("body").append("<iframe class='LLC' src='http://www.life-long-connections.com'></iframe>");
+    $("div.shadow").removeClass("hidden");
+
+    $("div.window").addClass("hide-overflow")
+  });
+
+  $("div.projects li.asteroids").on("click", function (event) {
+    $("div.asteroids").removeClass("hidden");
+    $("div.shadow").removeClass("hidden");
+    $("div.window").addClass("hide-overflow");
+    Asteroids.Music.menuAudio.volume = 1;
+    Asteroids.Music.menuAudio.currentTime = 0;
+  });
+
+  $("div.shadow").on("click", function (event) {
+    $("iframe").remove();
+    $(event.currentTarget).addClass("hidden");
+    $("div.window").removeClass("hide-overflow");
+    $("div.asteroids").addClass("hidden");
+    Asteroids.Music.menuAudio.pause();
+    Asteroids.Music.menuAudio.currentTime = 0;
+  });
 </script>
 
 </html>
