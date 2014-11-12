@@ -41,7 +41,7 @@
       <ul>
         <li class="LLC"><img src="<%= image_url("LLC.jpeg") %>"><h1>Life Long Connections</h1></li>
         <li class="asteroids"><video class="asteroids" src="<%= video_url("asteroids_gameplay_editted2.mp4") %>"></video><h1>Asteroids</h1></li>
-        <li></li>
+        <li class="snake-game"><h1>Snake Game</h1></li>
         <li></li>
         <div class="clear"></div>
       </ul>
@@ -73,6 +73,10 @@
 
   <div class="asteroids hidden">
   <%= render('games/asteroids') %>
+  </div>
+
+  <div class="snake-game hidden">
+  <%= render('games/snakeGame') %>
   </div>
 
 	<%= yield %>
@@ -109,6 +113,12 @@
     Asteroids.Music.menuAudio.play();
   });
 
+  $("div.projects li.snake-game").on("click", function (event) {
+    $("div.snake-game").removeClass("hidden");
+    $("div.shadow").removeClass("hidden");
+    $("div.window").addClass("hide-overflow");
+  });
+
   $("div.shadow").on("click", function (event) {
     $("iframe").remove();
     $(event.currentTarget).addClass("hidden");
@@ -119,6 +129,8 @@
     if (typeof window.ast !== "undefined") {
       window.ast.closeGame();
     }
+
+    $("div.snake-game").addClass("hidden");
   });
 </script>
 

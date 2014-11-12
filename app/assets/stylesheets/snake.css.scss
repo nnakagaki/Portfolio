@@ -1,0 +1,78 @@
+div.snake-game {
+  background: image-url('snake-bg.jpg');
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80vh;
+  width: 80vw;
+  margin: 10vh 10vw 10vh 10vw;
+  border-radius: 10px;
+
+  h1 {
+    font-size: 32pt;
+    color: white;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    font-family: sans-serif;
+    display: block;
+    background: linear-gradient(rgba(0,100,50,0.4),rgba(0,200,50,1));
+  }
+
+  section {
+    margin: 50px auto;
+    height: 600px;
+    width: 600px;
+    border: 20px solid #DF01A5;
+  }
+
+  li {
+    list-style: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid pink;
+    background: pink;
+  }
+
+
+  ul {
+    float: right;
+  }
+
+  .snake {
+    background: transparent;
+  }
+
+  .apple {
+    background: image-url('MacBook_white.png');
+    background-position: center;
+    height: 18px;
+    width: 18px;
+  }
+
+  .head {
+    background: transparent;
+  }
+
+  div.snake-game-view {
+    position: relative;
+
+    h1 {
+      position: absolute;
+      margin: auto;
+      color: white;
+      border: 10px solid green;
+      padding: 5px 10px 5px 10px;
+      border-radius: 20px;
+      top: 0; left: 0; bottom: 0; right: 0;
+      height: 50px;
+      width: 250px;
+
+      &.new-game:hover, &.restart:hover {
+        background: hotpink;
+        cursor: pointer;
+        background: linear-gradient(rgba(200,50,100,0.4),rgba(255,50,150,1));
+      }
+    }
+  }
+}
