@@ -40,9 +40,13 @@
       <h1>Projects</h1>
       <ul>
         <li class="LLC"><img src="<%= image_url("LLC.jpeg") %>"><h1>Life Long Connections</h1></li>
-        <li class="asteroids"><video class="asteroids" src="<%= video_url("asteroids_gameplay_editted2.mp4") %>"></video><h1>Asteroids</h1></li>
-        <li class="snake-game"><h1>Snake Game</h1></li>
-        <li></li>
+        <li class="asteroids">
+          <button class="collaborators">Collaborators</button>
+          <video class="asteroids" src="<%= video_url("asteroids_gameplay_editted2.mp4") %>"></video>
+          <h1>Asteroids</h1>
+        </li>
+        <li class="snake-game"><video class="snake-game" src="<%= video_url("snake_gameplay_cropped.mp4") %>"></video><h1>Snake Game</h1></li>
+        <li class="trello"><video class="trello" src="<%= video_url("trello_demo_cropped.mp4") %>"></video><h1>Trello Clone</h1></li>
         <div class="clear"></div>
       </ul>
     </div>
@@ -97,6 +101,32 @@
     }
   });
 
+  $("video.snake-game").on("mouseenter", function (event) {
+    if (event.currentTarget.readyState === 4) {
+      event.currentTarget.play();
+    }
+  });
+
+  $("video.snake-game").on("mouseleave", function (event) {
+    if (event.currentTarget.readyState === 4) {
+      event.currentTarget.pause();
+      event.currentTarget.currentTime = 0;
+    }
+  });
+
+  $("video.trello").on("mouseenter", function (event) {
+    if (event.currentTarget.readyState === 4) {
+      event.currentTarget.play();
+    }
+  });
+
+  $("video.trello").on("mouseleave", function (event) {
+    if (event.currentTarget.readyState === 4) {
+      event.currentTarget.pause();
+      event.currentTarget.currentTime = 0;
+    }
+  });
+
   $("div.projects li.LLC").on("click", function (event) {
     $("body").append("<iframe class='LLC' src='https://life-long-connections.herokuapp.com'></iframe>");
     $("div.shadow").removeClass("hidden");
@@ -105,13 +135,19 @@
   });
 
   $("div.projects li.asteroids").on("click", function (event) {
-    $("div.asteroids").removeClass("hidden");
-    $("div.shadow").removeClass("hidden");
-    $("div.window").addClass("hide-overflow");
-    Asteroids.Music.menuAudio.volume = 1;
-    Asteroids.Music.menuAudio.currentTime = 0;
-    Asteroids.Music.menuAudio.play();
+    if (event.target !== $("div.projects li.asteroids button.collaborators")[0]) {
+      $("div.asteroids").removeClass("hidden");
+      $("div.shadow").removeClass("hidden");
+      $("div.window").addClass("hide-overflow");
+      Asteroids.Music.menuAudio.volume = 1;
+      Asteroids.Music.menuAudio.currentTime = 0;
+      Asteroids.Music.menuAudio.play();
+    }
   });
+
+  $("div.projects li.asteroids button.collaborators").on("click", function (event) {
+    $("div.projects li.asteroids").addClass("flip")
+  })
 
   $("div.projects li.snake-game").on("click", function (event) {
     $("div.snake-game").removeClass("hidden");

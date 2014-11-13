@@ -14,13 +14,17 @@
  *= require_self
  */
 
-body, div, h1, h2, p, ul, li, iframe {
+body, div, h1, h2, p, ul, li, iframe, button {
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font: inherit;
 	background: transparent;
 	text-decoration: none;
+}
+
+:focus {
+	outline: none;
 }
 
 li {
@@ -40,7 +44,7 @@ a {
 }
 
 .hide-overflow {
-	overflow: hidden
+	overflow: hidden;
 }
 
 div.shadow {
@@ -182,14 +186,25 @@ main {
 					background: white;
 					border-radius: 0 0 15px 15px;
 					box-shadow: 0 0 1em grey;
+					position: relative;
+					overflow: hidden;
+					transition: 0.6s;
+
+					&.flip {
+						transform: perspective( 600px ) rotateY( 90deg );
+					}
 
 					&:hover {
 						background: rgb(225,255,225);
 					}
 
-					a {
-						height: 100%;
-						width: 100%;
+					button {
+						position: absolute;
+						right: 0;
+						top: 0;
+						padding: 5px;
+						background: rgb(200,200,200);
+						border-radius: 0 0 0 10px;
 					}
 
 					img {
