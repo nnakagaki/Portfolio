@@ -43,3 +43,7 @@ gem 'backbone-on-rails'
 group :production do
   gem 'rails_12factor'
 end
+
+group :development do
+  gem 'letter_opener'
+end

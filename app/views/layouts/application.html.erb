@@ -77,6 +77,12 @@
     </div>
 		<div class="contact">
       <h1>Contact me</h1>
+      <form class="contact-me">
+        <input type="text" class="name" placeholder="Name">
+        <input type="text" class="email" placeholder="Email">
+        <textarea class="content" placeholder="Content"></textarea>
+        <input type="submit" value="Send">
+      </form>
     </div>
 	</main>
   </div>
@@ -232,9 +238,17 @@
 
   $("div.next-section.about").on("click", function (event) {
     $('html, body').animate({
-        scrollTop: $("main div.conatct").offset().top
+        scrollTop: $("main div.contact").offset().top
     }, 300);
   });
+
+  $("form.contact-me").on("submit", function (event) {
+    $.ajax({
+      url: "/contact_me",
+      type: "GET",
+      data: {mail: {name: $("form.contact-me input.name").val(), email: $("form.contact-me input.email").val(), content: $("form.contact-me textarea").val()}}
+    })
+  })
 </script>
 
 <script>

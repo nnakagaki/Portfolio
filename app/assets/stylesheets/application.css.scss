@@ -303,6 +303,38 @@ main {
 				}
 			}
 		}
+
+		&.contact {
+			input.name {
+				float: left;
+				width: 45%;
+				padding: 1%;
+				border: 1px solid rgb(150,150,150);
+				margin-bottom: 20px;
+				font-size: 20px;
+				border-radius: 10px;
+			}
+
+			input.email {
+				float: right;
+				width: 45%;
+				padding: 1%;
+				border: 1px solid rgb(150,150,150);
+				margin-bottom: 20px;
+				font-size: 20px;
+				border-radius: 10px;
+			}
+
+			textarea {
+				width: 98%;
+				padding: 1%;
+				border-radius: 10px;
+				border: 1px solid rgb(150,150,150);
+				resize: none;
+				font-size: 20px;
+				height: 150px;
+			}
+		}
 	}
 }
 
