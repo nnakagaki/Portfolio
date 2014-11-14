@@ -32,26 +32,48 @@
   <div class="window">
 	<main>
 		<div class="intro">
-			<h1>Norris Nakagaki</h1>
-			<h2>Web Developer</h2>
-			<p>Ruby on Rails and Backbone.js!</p>
+			<h1>Hi! I'm Norris</h1>
+			<p>I am a web developer stationed in New York City, working with a variety of frameworks - Ruby on Rails, Backbone.js, and Meteor.</p>
+      <div class="next-section intro"></div>
 		</div>
 		<div class="projects">
       <h1>Projects</h1>
       <ul>
         <li class="LLC"><img src="<%= image_url("LLC.jpeg") %>"><h1>Life Long Connections</h1></li>
         <li class="asteroids">
-          <button class="collaborators">Collaborators</button>
-          <video class="asteroids" src="<%= video_url("asteroids_gameplay_editted2.mp4") %>"></video>
-          <h1>Asteroids</h1>
+          <div class="front">
+            <button class="collaborators">Collaborators</button>
+            <video class="asteroids" src="<%= video_url("asteroids_gameplay_editted2.mp4") %>"></video>
+            <h1>Asteroids</h1>
+          </div>
+          <div class="back">
+            <img src="<%= image_url("zak.png") %>">
+            <h1>Zachary Stallings</h1>
+          </div>
         </li>
-        <li class="snake-game"><video class="snake-game" src="<%= video_url("snake_gameplay_cropped.mp4") %>"></video><h1>Snake Game</h1></li>
+        <li class="snake-game">
+          <div class="front">
+            <button class="collaborators">Collaborators</button>
+            <video class="snake-game" src="<%= video_url("snake_gameplay_cropped.mp4") %>"></video>
+            <h1>Snake Game</h1>
+          </div>
+          <div class="back">
+            <img src="<%= image_url("colin.jpg") %>">
+            <h1>Colin Day</h1>
+          </div>
+        </li>
         <li class="trello"><video class="trello" src="<%= video_url("trello_demo_cropped.mp4") %>"></video><h1>Trello Clone</h1></li>
         <div class="clear"></div>
       </ul>
+      <div class="next-section projects"></div>
     </div>
 		<div class="about">
       <h1>About</h1>
+      <p><strong>I started coding&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when I was in college (Cooper Union), where I needed to solve differential equations and do various numerical analyses using Matlab. As a chemical engineering major, I used numerical analysis to solve problems and to simulate various equipments such as heat exchangers and reactors. Though Matlab does come with its own differential equation solvers, I often found myself using my own runge-kutta solver. I very much enjoyed coding and it became a hobby to make programs that solved games, such as "Sudoku" and "Move the Box", and problems such as the ones in <a href="https://projecteuler.net/" target="_blank">Project Euler</a>.</p>
+      <p><strong>In Cooper Union</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on top of being introduced to coding with Matlab, I was exposed to a variety of software. Much of them were engineering software that I used in class - AutoCAD for making drafts, SolidWorks for making 3D models, and Fluent and Comsol for fluid simulations. Interestingly, one of the classes that I coded the most in was neuro-science. I had many complex programming projects in that class. For example, one project was to model action potentials of neurons and find the firing rate with a gaussian frame to relate the firing rate to specific actions. After this class, I felt really confident with Matlab and felt like I could do anything I wanted in it. After graduating from Cooper Union with a bachelors degree in chemical engineering, I still was not sure what I wanted to do with my life so I decided to go for a masters in chemical engineering, again at Cooper Union.</p>
+      <p><strong>The masters program</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;was rather laid back and when I was not working on my thesis, I had some time to think about what I wanted to do with my life, and to do what I wanted to do. One of the things I loved was breakdancing, and because of it I was exposed to some software that I had not had a chance to use in engineering. I had decided to make <a href="https://www.youtube.com/channel/UCd8sPxNL3EC_QTshgLbfqSw" target="_blank">a youtube channel</a> for our school's club and that encouraged the learning of Premiere and AfterEffects - video editing software, Audacity - an audio editing software, and Photoshop - an image editing software. All of these seemed magical to me and I wanted to know more about how it was actually made.</p>
+      <p><strong>At AppAcademy</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I learned ruby, ruby on rails, sql, javascript, html, css, backbone, and meteor - essentials in becoming a web developer. Starting from ruby, I learned the fundamentals of programming. One of the projects was to make a simple version of ActiveRecord, which gave me a good understanding about the relational database structure that ruby on rails uses. Another project was to do the same thing with ruby on rails, giving me further understanding of how rails works in the back. After learning the fundamentals of developing websites, we finally got around to making the website actually look nice and have many cool features using javascript, html, css, backbone, and meteor.</p>
+      <div class="next-section about"></div>
     </div>
 		<div class="contact">
       <h1>Contact me</h1>
@@ -68,10 +90,10 @@
     <div class="top-circle"></div>
 		<img src="<%= image_url("norris-nakagaki-cropped.png") %>">
 		<ul>
-			<li><div class="right-arrow"></div>Intro</li>
-			<li><div class="right-arrow"></div>Projects</li>
-			<li><div class="right-arrow"></div>About</li>
-			<li><div class="right-arrow"></div>Contact</li>
+			<li class="intro"><div class="right-arrow"></div>Intro</li>
+			<li class="projects"><div class="right-arrow"></div>Projects</li>
+			<li class="about"><div class="right-arrow"></div>About</li>
+			<li class="contact"><div class="right-arrow"></div>Contact</li>
 		</ul>
 	</div>
 
@@ -88,39 +110,13 @@
 </body>
 
 <script>
-  $("video.asteroids").on("mouseenter", function (event) {
+  $("video").on("mouseenter", function (event) {
     if (event.currentTarget.readyState === 4) {
       event.currentTarget.play();
     }
   });
 
-  $("video.asteroids").on("mouseleave", function (event) {
-    if (event.currentTarget.readyState === 4) {
-      event.currentTarget.pause();
-      event.currentTarget.currentTime = 0;
-    }
-  });
-
-  $("video.snake-game").on("mouseenter", function (event) {
-    if (event.currentTarget.readyState === 4) {
-      event.currentTarget.play();
-    }
-  });
-
-  $("video.snake-game").on("mouseleave", function (event) {
-    if (event.currentTarget.readyState === 4) {
-      event.currentTarget.pause();
-      event.currentTarget.currentTime = 0;
-    }
-  });
-
-  $("video.trello").on("mouseenter", function (event) {
-    if (event.currentTarget.readyState === 4) {
-      event.currentTarget.play();
-    }
-  });
-
-  $("video.trello").on("mouseleave", function (event) {
+  $("video").on("mouseleave", function (event) {
     if (event.currentTarget.readyState === 4) {
       event.currentTarget.pause();
       event.currentTarget.currentTime = 0;
@@ -134,7 +130,7 @@
     $("div.window").addClass("hide-overflow")
   });
 
-  $("div.projects li.asteroids").on("click", function (event) {
+  $("div.projects li.asteroids div.front").on("click", function (event) {
     if (event.target !== $("div.projects li.asteroids button.collaborators")[0]) {
       $("div.asteroids").removeClass("hidden");
       $("div.shadow").removeClass("hidden");
@@ -145,14 +141,43 @@
     }
   });
 
-  $("div.projects li.asteroids button.collaborators").on("click", function (event) {
-    $("div.projects li.asteroids").addClass("flip")
-  })
+  var astCollab = function () {
+    $("div.projects li.asteroids button.collaborators").one("click", function (event) {
+      $("div.projects li.asteroids").addClass("flip");
+      setTimeout(function () {
+        $("div.projects li.asteroids").removeClass("flip");
+        astCollab();
+      }, 1500)
+    })
+  }
 
-  $("div.projects li.snake-game").on("click", function (event) {
-    $("div.snake-game").removeClass("hidden");
+  astCollab();
+
+  var snakeCollab = function () {
+    $("div.projects li.snake-game button.collaborators").one("click", function (event) {
+      $("div.projects li.snake-game").addClass("flip");
+      setTimeout(function () {
+        $("div.projects li.snake-game").removeClass("flip");
+        snakeCollab();
+      }, 1500)
+    })
+  }
+
+  snakeCollab();
+
+  $("div.projects li.snake-game div.front").on("click", function (event) {
+    if (event.target !== $("div.projects li.snake-game button.collaborators")[0]) {
+      $("div.snake-game").removeClass("hidden");
+      $("div.shadow").removeClass("hidden");
+      $("div.window").addClass("hide-overflow");
+    }
+  });
+
+  $("div.projects li.trello").on("click", function (event) {
+    $("body").append("<iframe class='trello' src='https://norris-trello-clone.herokuapp.com'></iframe>");
     $("div.shadow").removeClass("hidden");
-    $("div.window").addClass("hide-overflow");
+
+    $("div.window").addClass("hide-overflow")
   });
 
   $("div.shadow").on("click", function (event) {
@@ -168,6 +193,57 @@
 
     $("div.snake-game").addClass("hidden");
   });
+
+  $("div.side-bar li.intro").on("click", function (event) {
+    $('html, body').animate({
+        scrollTop: $("main div.intro").offset().top
+    }, 300);
+  });
+
+  $("div.side-bar li.projects").on("click", function (event) {
+    $('html, body').animate({
+        scrollTop: $("main div.projects").offset().top
+    }, 300);
+  });
+
+  $("div.side-bar li.about").on("click", function (event) {
+    $('html, body').animate({
+        scrollTop: $("main div.about").offset().top
+    }, 300);
+  });
+
+  $("div.side-bar li.contact").on("click", function (event) {
+    $('html, body').animate({
+        scrollTop: $("main div.contact").offset().top
+    }, 300);
+  });
+
+  $("div.next-section.intro").on("click", function (event) {
+    $('html, body').animate({
+        scrollTop: $("main div.projects").offset().top
+    }, 300);
+  });
+
+  $("div.next-section.projects").on("click", function (event) {
+    $('html, body').animate({
+        scrollTop: $("main div.about").offset().top
+    }, 300);
+  });
+
+  $("div.next-section.about").on("click", function (event) {
+    $('html, body').animate({
+        scrollTop: $("main div.conatct").offset().top
+    }, 300);
+  });
+</script>
+
+<script>
+  $("div.projects ul li").css("height", 51+$("div.projects ul li").width()*750/1250);
+  $("div.projects ul li div.back img").css("height", $("div.projects ul li").width()*750/1250);
+  $(window).on("resize", function (event) {
+    $("div.projects ul li").css("height", 51+$("div.projects ul li").width()*750/1250);
+    $("div.projects ul li div.back img").css("height", $("div.projects ul li").width()*750/1250);
+  })
 </script>
 
 </html>
