@@ -24,6 +24,8 @@
   Asteroids.Music.menuAudio.oncanplaythrough = Asteroids.Music.menuAudio.play();
   Asteroids.Music.menuAudio.volume = 0;
 
+  console.log("game init")
+
   // misha mishenko - Vakning að elska
   // Misha Mishenko - Vor í mig
 
@@ -75,7 +77,7 @@
     ast.currGameAudio.currentTime = 4;
     ast.currGameAudio.oncanplaythrough = ast.currGameAudio.play();
     ast.currGameAudio.addEventListener('ended', function() {
-      this.currentTime = 0;
+      this.src = this.src;
       this.play();
     }, false);
     ast.start();

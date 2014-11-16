@@ -59,7 +59,7 @@
       $('.restart').toggleClass('paused');
       ast.game = new Asteroids.Game(canvasWidth, canvasHeight);
       that.currGameAudio.pause();
-      that.currGameAudio.currentTime = 0;
+      that.currGameAudio.src = that.currGameAudio.src;
       that.currGameAudio = Asteroids.Music.gameAudio1;
       that.currGameAudio.play();
       ast.start();
@@ -89,7 +89,7 @@
     that.modeLoopID = window.setInterval(function () {
       if (that.game.score > 1000 && that.game.mode !== 1) {
         that.currGameAudio.pause();
-        that.currGameAudio.currentTime = 0;
+        that.currGameAudio.src = that.currGameAudio.src;
         that.currGameAudio = Asteroids.Music.gameAudio2;
         that.currGameAudio.play();
         that.game.mode = 1;
@@ -125,9 +125,12 @@
           });
 
           if (musicTime > 42) {
-            var xVel = that.game.bossAsteroid[0].pos[0] > that.game.ship.pos[0] ? -1 : 1;
-            var yVel = that.game.bossAsteroid[0].pos[1] > that.game.ship.pos[1] ? -1 : 1;
-            that.game.bossAsteroid[0].vel = [xVel, yVel];
+            if ((that.game.bossAsteroid.length !== 0) && (that.game.bossAsteroid[0].life > 0)) {
+              var xVel = that.game.bossAsteroid[0].pos[0] > that.game.ship.pos[0] ? -1 : 1;
+              var yVel = that.game.bossAsteroid[0].pos[1] > that.game.ship.pos[1] ? -1 : 1;
+              that.game.bossAsteroid[0].vel = [xVel, yVel];
+              that.game.bossAsteroidActive = true;
+            }
           }
         }
       }
@@ -193,13 +196,14 @@
   };
 
   AsteroidView.prototype.closeGame = function () {
-    console.log("here")
+    console.log("closing game")
+
     if (typeof this.intID !== "undefined") {
       window.clearInterval(this.intID);
     }
 
     this.currGameAudio.pause();
-    this.currGameAudio.currentTime = 0;
+    this.currGameAudio.src = this.currGameAudio.src;
 
     this.game = new Asteroids.Game(canvasWidth, canvasHeight);
     $('.main-menu').removeClass('paused');

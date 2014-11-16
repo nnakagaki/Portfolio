@@ -9,6 +9,8 @@
 
   Asteroids.Music.visualize = function (audio) {
 
+    console.log("in audio vis")
+
     var context = new AudioContext();
     var analyser = context.createAnalyser();
     var canvas = $('#analyser_render')[0];
@@ -21,7 +23,16 @@
 
     audio.addEventListener("play", frameLooper.bind(null, analyser, ctx, canvas), false);
 
+    var that = this;
+
+    audio.addEventListener("pause", function (event) {
+      window.cancelAnimationFrame(requestID)
+    }, false);
+
+
     function frameLooper(analyser, ctx, canvas){
+      console.log("in audio vis looper")
+
       requestID = window.requestAnimationFrame(frameLooper.bind(null, analyser, ctx, canvas));
       var fbc_array = new Uint8Array(analyser.frequencyBinCount);
       analyser.getByteFrequencyData(fbc_array);
