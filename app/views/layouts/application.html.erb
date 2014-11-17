@@ -33,7 +33,7 @@
 	<main>
 		<div class="intro">
 			<h1>Hi! I'm Norris</h1>
-			<p>I am a web developer stationed in New York City, working with a variety of frameworks - Ruby on Rails, Backbone.js, and Meteor.</p>
+			<p>I am a web developer stationed in New York City, working with a variety of frameworks - Ruby on Rails, Backbone.js, and Meteor.js.</p>
       <div class="next-section intro"></div>
 		</div>
 		<div class="projects">
@@ -51,6 +51,7 @@
             <h1>Zachary Stallings</h1>
           </div>
         </li>
+        <li class="princess"><img src="<%= image_url("LLC.jpeg") %>"><h1>Princess Diaries</h1></li>
         <li class="snake-game">
           <div class="front">
             <button class="collaborators">Collaborators</button>
@@ -135,6 +136,28 @@
 
     $("div.info-modal div.iframe").on("click", function (event) {
       $("body").append("<iframe class='LLC' src='https://life-long-connections.herokuapp.com'></iframe>");
+    })
+
+    setTimeout(function () {
+      $("div.info-modal").removeClass("init")
+      $("div.info-modal").addClass("mid")
+
+      setTimeout(function () {
+        $("div.info-modal").removeClass("mid")
+        $("div.info-modal").addClass("final")
+      }, 500)
+    }, 100);
+
+    $("div.shadow").removeClass("hidden");
+
+    $("div.window").addClass("hide-overflow")
+  });
+
+  $("div.projects li.princess").on("click", function (event) {
+    $("body").append("<div class='info-modal init'><h1>Princess Diaries</h1><div class='content'><div class='right'><img src='<%= image_url('LLC.jpeg') %>'><div class='iframe'>Open as iframe</div><div class='new-tab'>Open in new tab<a href='https://princess-diary.herokuapp.com' target='_blank'></a></div></div><p>First app that I made in Meteor.js. The app was originally made in rails and backbone, but was ported to meteor.</p><p class='features'>Features:</p><ul><li>Basic user authentification</li></ul></div></div>")
+
+    $("div.info-modal div.iframe").on("click", function (event) {
+      $("body").append("<iframe class='princess' src='https://princess-diary.herokuapp.com'></iframe>");
     })
 
     setTimeout(function () {
