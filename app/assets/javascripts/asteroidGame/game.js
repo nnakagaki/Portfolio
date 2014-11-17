@@ -10,7 +10,7 @@
     this.bullets = [];
     this.makeShip();
     this.score = 0;
-    this.lives = 20;
+    this.lives = 5;
     this.mode = 0;
     this.asteroidsDestroyed = 0;
     this.shotsFired = 0;
