@@ -39,7 +39,7 @@
 		<div class="projects">
       <h1>Projects</h1>
       <ul>
-        <li class="LLC"><img src="<%= image_url("LLC.jpeg") %>"><h1>Life Long Connections</h1></li>
+        <li class="LLC"><video class="LLC" src="<%= video_url("LLC_demo.mp4") %>"></video><h1>Life Long Connections</h1></li>
         <li class="asteroids">
           <div class="front">
             <button class="collaborators">Collaborators</button>
@@ -51,7 +51,17 @@
             <h1>Zachary Stallings</h1>
           </div>
         </li>
-        <li class="princess"><img src="<%= image_url("LLC.jpeg") %>"><h1>Princess Diaries</h1></li>
+        <li class="princess">
+          <div class="front">
+            <button class="collaborators">Collaborators</button>
+            <video class="princess" src="<%= video_url("princess_demo_test.mp4") %>"></video>
+            <h1>Princess Diaries</h1>
+          </div>
+          <div class="back">
+            <img src="<%= image_url("john.jpg") %>">
+            <h1>John Zhang</h1>
+          </div>
+        </li>
         <li class="snake-game">
           <div class="front">
             <button class="collaborators">Collaborators</button>
@@ -132,11 +142,24 @@
   });
 
   $("div.projects li.LLC").on("click", function (event) {
-    $("body").append("<div class='info-modal init'><h1>Life Long Connections</h1><div class='content'><div class='right'><img src='<%= image_url('LLC.jpeg') %>'><div class='iframe'>Open as iframe</div><div class='new-tab'>Open in new tab<a href='http://www.life-long-connections.com' target='_blank'></a></div></div><p>This app is a clone of facebook and is my final project from AppAcademy. I originally built it purely in rails, but ported it over to backbone. It covers the major features in the facebook user show page such as posts, comments, likes, profile and cover photos. Chat, notifications, and friend requests is also implemented.</p><p class='features'>Features:</p><ul><li>Saves profile and cover photos with FilePicker</li><li>Private realtime chat with Pusher</li><li>Realtime notifications and friend requests with Pusher</li><li>Find where post was posted from with the Geocoder gem</li><li>Allows for embedding of any website with the Link Thumbnailer gem</li><li>Clicking notifications auto directs and scrolls to the post of interest</li><li>User authentication for chat rooms and notification channels</li></ul></div></div>")
+    $("body").append("<div class='info-modal init'><h1>Life Long Connections</h1><div class='content'><div class='right'><video class='LLC' src='<%= video_url('LLC_demo.mp4') %>'></video><div class='iframe'>Open as iframe</div><div class='new-tab'>Open in new tab<a href='http://www.life-long-connections.com' target='_blank'></a></div></div><p>This app is a clone of facebook and is my final project from AppAcademy. I originally built it purely in rails, but ported it over to backbone. It covers the major features in the facebook user show page such as posts, comments, likes, profile and cover photos. Chat, notifications, and friend requests is also implemented.</p><p class='features'>Features:</p><ul><li>Saves profile and cover photos with FilePicker</li><li>Private realtime chat with Pusher</li><li>Realtime notifications and friend requests with Pusher</li><li>Find where post was posted from with the Geocoder gem</li><li>Allows for embedding of any website with the Link Thumbnailer gem</li><li>Clicking notifications auto directs and scrolls to the post of interest</li><li>User authentication for chat rooms and notification channels</li></ul></div></div>")
 
     $("div.info-modal div.iframe").on("click", function (event) {
       $("body").append("<iframe class='LLC' src='https://life-long-connections.herokuapp.com'></iframe>");
-    })
+    });
+
+    $("div.info-modal video").on("mouseenter", function (event) {
+      if (event.currentTarget.readyState === 4) {
+        event.currentTarget.play();
+      }
+    });
+
+    $("div.info-modal video").on("mouseleave", function (event) {
+      if (event.currentTarget.readyState === 4) {
+        event.currentTarget.pause();
+        event.currentTarget.currentTime = 0;
+      }
+    });
 
     setTimeout(function () {
       $("div.info-modal").removeClass("init")
@@ -154,25 +177,40 @@
   });
 
   $("div.projects li.princess").on("click", function (event) {
-    $("body").append("<div class='info-modal init'><h1>Princess Diaries</h1><div class='content'><div class='right'><img src='<%= image_url('LLC.jpeg') %>'><div class='iframe'>Open as iframe</div><div class='new-tab'>Open in new tab<a href='https://princess-diary.herokuapp.com' target='_blank'></a></div></div><p>First app that I made in Meteor.js. The app was originally made in rails and backbone, but was ported to meteor.</p><p class='features'>Features:</p><ul><li>Basic user authentification</li></ul></div></div>")
+    if (event.target !== $("div.projects li.princess button.collaborators")[0]) {
+      $("body").append("<div class='info-modal init'><h1>Princess Diaries</h1><div class='content'><div class='right'><video class='princess' src='<%= video_url('princess_demo_test.mp4') %>'></video><div class='iframe'>Open as iframe</div><div class='new-tab'>Open in new tab<a href='https://princess-diary.herokuapp.com' target='_blank'></a></div></div><p>First app that I made in Meteor.js. The app was originally made in rails and backbone, but was ported to meteor.</p><p class='features'>Features:</p><ul><li>Basic user authentification</li><li>Unit testing</li></ul></div></div>")
 
-    $("div.info-modal div.iframe").on("click", function (event) {
-      $("body").append("<iframe class='princess' src='https://princess-diary.herokuapp.com'></iframe>");
-    })
+      $("div.info-modal div.iframe").on("click", function (event) {
+        $("body").append("<iframe class='princess' src='https://princess-diary.herokuapp.com'></iframe>");
+      });
 
-    setTimeout(function () {
-      $("div.info-modal").removeClass("init")
-      $("div.info-modal").addClass("mid")
+      $("div.info-modal video").on("mouseenter", function (event) {
+        if (event.currentTarget.readyState === 4) {
+          event.currentTarget.play();
+        }
+      });
+
+      $("div.info-modal video").on("mouseleave", function (event) {
+        if (event.currentTarget.readyState === 4) {
+          event.currentTarget.pause();
+          event.currentTarget.currentTime = 0;
+        }
+      });
 
       setTimeout(function () {
-        $("div.info-modal").removeClass("mid")
-        $("div.info-modal").addClass("final")
-      }, 500)
-    }, 100);
+        $("div.info-modal").removeClass("init")
+        $("div.info-modal").addClass("mid")
 
-    $("div.shadow").removeClass("hidden");
+        setTimeout(function () {
+          $("div.info-modal").removeClass("mid")
+          $("div.info-modal").addClass("final")
+        }, 500)
+      }, 100);
 
-    $("div.window").addClass("hide-overflow")
+      $("div.shadow").removeClass("hidden");
+
+      $("div.window").addClass("hide-overflow")
+    }
   });
 
   $("div.projects li.asteroids div.front").on("click", function (event) {
@@ -238,6 +276,18 @@
   }
 
   snakeCollab();
+
+  var princessCollab = function () {
+    $("div.projects li.princess button.collaborators").one("click", function (event) {
+      $("div.projects li.princess").addClass("flip");
+      setTimeout(function () {
+        $("div.projects li.princess").removeClass("flip");
+        princessCollab();
+      }, 1500)
+    })
+  }
+
+  princessCollab();
 
   $("div.projects li.snake-game div.front").on("click", function (event) {
     if (event.target !== $("div.projects li.snake-game button.collaborators")[0]) {
