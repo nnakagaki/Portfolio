@@ -1,6 +1,6 @@
-My portfolio web app
+== My portfolio web app
 
-live at norrisnakagaki.com
+= live at www.norrisnakagaki.com
 
 to run locally
 * download zip-file or run <tt>git clone https://github.com/nnakagaki/Portfolio.git</tt>
@@ -8,3 +8,5 @@ to run locally
 * <tt>bundle exec rake db:create db:migrate</tt>
 * <tt>rails server</tt>
 * go to localhost:3000 to view page
+
+Asteroids and Snake are modified within this app to be the most updated version.
