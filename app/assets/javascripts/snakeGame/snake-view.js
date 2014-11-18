@@ -8,14 +8,18 @@
     this.board = new SnakeGame.Board();
     this.keyBinding();
     this.preRender();
-    this.preSizing();
+    this.reSizing();
 
     var that = this;
     $("div.snake-game-view").append("<h1 class='new-game'>New Game</h1>")
     $("div.snake-game-view h1.new-game").one("click", function (event) {
       $("div.snake-game-view h1.new-game").remove();
       that.run();
-    })
+    });
+
+    $(window).on("resize", function(event) {
+      that.reSizing();
+    });
   }
 
   View.prototype.keyBinding = function () {
@@ -98,7 +102,7 @@
     }, 50)
   };
 
-  View.prototype.preSizing = function () {
+  View.prototype.reSizing = function () {
     if (window.innerHeight < window.innerWidth) {
       var limiting = window.innerHeight * 0.7 - 50;
     } else {
