@@ -60,7 +60,12 @@ div.window {
 	width: 100vw;
 }
 
+main {
+	min-width: 1000px;
+}
+
 div.side-bar {
+	z-index: 98;
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -158,6 +163,60 @@ div.side-bar {
 
 			&:hover {
 				margin-left: 10px;
+			}
+		}
+	}
+
+	ul.links {
+		position: absolute;
+		bottom: 0;
+		margin: 0;
+		right: 0;
+		left: 0;
+
+		li {
+			float: left;
+			width: 35px;
+			height: 35px;
+			margin: 0 0 10px 10px;
+			position: relative;
+
+			a {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+
+				&.github {
+					background-image: image-url("github.png");
+					background-size: cover;
+				}
+
+				&.linkedin {
+					background-image: image-url("linkedin.png");
+					background-size: cover;
+				}
+
+				&.facebook {
+					background-image: image-url("facebook.png");
+					background-size: cover;
+				}
+
+				&.tumblr {
+					background-image: image-url("tumblr.png");
+					background-size: cover;
+				}
+
+				&.deviantart {
+					background-image: image-url("deviantart.png");
+					background-size: cover;
+				}
+
+				&.youtube {
+					background-image: image-url("youtube.png");
+					background-size: cover;
+				}
 			}
 		}
 	}
@@ -444,6 +503,30 @@ div.info-modal {
 		video {
 			width: 100%;
 			height: auto;
+		}
+
+		div.github-link {
+			margin-top: 10px;
+			height: 38px;
+			position: relative;
+
+			a {
+				position: absolute;
+				width: 38px;
+				margin: auto;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				background-image: image-url('github.png');
+				background-repeat: no-repeat;
+				background-size: cover;
+
+				&:hover {
+					background-color: rgb(150,255,150);
+					border-radius: 50px;
+				}
+			}
 		}
 
 		div.iframe, div.new-tab {

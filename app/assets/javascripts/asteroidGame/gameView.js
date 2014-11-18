@@ -182,11 +182,11 @@
   };
 
   AsteroidView.prototype.varyShipSpeed = function (hyp) {
-    if (hyp < 30) {
+    if (hyp < 15) {
       this.game.ship.speed = 0;
-    } else if (hyp < 50) {
+    } else if (hyp < 40) {
       this.game.ship.speed *= 0.5;
-    } else if (hyp < 100) {
+    } else if (hyp < 90) {
       this.game.ship.speed *= 0.75;
     } else if (hyp < 200) {
       this.game.ship.speed *= 0.9;
