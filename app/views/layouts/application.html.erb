@@ -74,6 +74,17 @@
           </div>
         </li>
         <li class="trello"><video class="trello" src="<%= video_url("trello_demo_cropped.mp4") %>"></video><h1>Trello Clone</h1></li>
+        <li class="chess">
+          <div class="front">
+            <button class="collaborators">Collaborators</button>
+            <image class="chess" src="<%= image_url('chess.jpg') %>">
+            <h1>Chess</h1>
+          </div>
+          <div class="back">
+            <img src="<%= image_url("colin_jackson.jpg") %>">
+            <h1>Colin Jackson</h1>
+          </div>
+        </li>
         <div class="clear"></div>
       </ul>
       <div class="next-section projects"></div>
@@ -297,6 +308,18 @@
   }
 
   princessCollab();
+
+  var chessCollab = function () {
+    $("div.projects li.chess button.collaborators").one("click", function (event) {
+      $("div.projects li.chess").addClass("flip");
+      setTimeout(function () {
+        $("div.projects li.chess").removeClass("flip");
+        chessCollab();
+      }, 1500)
+    })
+  }
+
+  chessCollab();
 
   $("div.projects li.snake-game div.front").on("click", function (event) {
     if (event.target !== $("div.projects li.snake-game button.collaborators")[0]) {
