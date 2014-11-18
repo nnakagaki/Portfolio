@@ -2,6 +2,8 @@
 
 == live at www.norrisnakagaki.com
 
+This app is made in rails
+
 to run locally
 * download zip-file or run <tt>git clone https://github.com/nnakagaki/Portfolio.git</tt>
 * <tt>bundle install</tt>
