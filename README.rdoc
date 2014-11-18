@@ -3,9 +3,8 @@ My portfolio web app
 live at norrisnakagaki.com
 
 to run locally
-*download zip-file or run <tt>git clone https://github.com/nnakagaki/Portfolio.git</tt>
-*<tt>bundle install</tt>
-*<tt>bundle exec rake db:create db:migrate</tt>
-*<tt>rails server</tt>
-
-go to localhost:3000 to view page
+* download zip-file or run <tt>git clone https://github.com/nnakagaki/Portfolio.git</tt>
+* <tt>bundle install</tt>
+* <tt>bundle exec rake db:create db:migrate</tt>
+* <tt>rails server</tt>
+* go to localhost:3000 to view page
