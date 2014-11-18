@@ -1,6 +1,6 @@
-== My portfolio web app
+= My portfolio web app
 
-= live at www.norrisnakagaki.com
+== live at www.norrisnakagaki.com
 
 to run locally
 * download zip-file or run <tt>git clone https://github.com/nnakagaki/Portfolio.git</tt>
