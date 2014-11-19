@@ -77,7 +77,7 @@
         <li class="chess">
           <div class="front">
             <button class="collaborators">Collaborators</button>
-            <image class="chess" src="<%= image_url('chess.jpg') %>">
+            <video class="chess" src="<%= video_url("chess_demo.mp4") %>"></video>
             <h1>Chess</h1>
           </div>
           <div class="back">
@@ -243,6 +243,12 @@
         Asteroids.Music.menuAudio.volume = 1;
         Asteroids.Music.menuAudio.currentTime = 0;
         Asteroids.Music.menuAudio.play();
+
+        $(window).on("keyup", function (event) {
+          if (event.keyCode === 13) {
+            toggleFullScreen($("div.asteroids")[0]);
+          }
+        })
       });
 
       $("div.info-modal video").on("mouseenter", function (event) {
@@ -272,54 +278,6 @@
       $("div.window").addClass("hide-overflow");
     }
   });
-
-  var astCollab = function () {
-    $("div.projects li.asteroids button.collaborators").one("click", function (event) {
-      $("div.projects li.asteroids").addClass("flip");
-      setTimeout(function () {
-        $("div.projects li.asteroids").removeClass("flip");
-        astCollab();
-      }, 1500)
-    })
-  }
-
-  astCollab();
-
-  var snakeCollab = function () {
-    $("div.projects li.snake-game button.collaborators").one("click", function (event) {
-      $("div.projects li.snake-game").addClass("flip");
-      setTimeout(function () {
-        $("div.projects li.snake-game").removeClass("flip");
-        snakeCollab();
-      }, 1500)
-    })
-  }
-
-  snakeCollab();
-
-  var princessCollab = function () {
-    $("div.projects li.princess button.collaborators").one("click", function (event) {
-      $("div.projects li.princess").addClass("flip");
-      setTimeout(function () {
-        $("div.projects li.princess").removeClass("flip");
-        princessCollab();
-      }, 1500)
-    })
-  }
-
-  princessCollab();
-
-  var chessCollab = function () {
-    $("div.projects li.chess button.collaborators").one("click", function (event) {
-      $("div.projects li.chess").addClass("flip");
-      setTimeout(function () {
-        $("div.projects li.chess").removeClass("flip");
-        chessCollab();
-      }, 1500)
-    })
-  }
-
-  chessCollab();
 
   $("div.projects li.snake-game div.front").on("click", function (event) {
     if (event.target !== $("div.projects li.snake-game button.collaborators")[0]) {
@@ -360,6 +318,41 @@
 
   $("div.projects li.trello").on("click", function (event) {
     $("body").append("<div class='info-modal init'><h1>Trello Clone</h1><div class='content'><div class='right'><video class='trello' src='<%= video_url('trello_demo_cropped.mp4') %>'></video><div class='iframe'>Open as iframe</div><div class='new-tab'>Open in new tab<a href='https://norris-trello-clone.herokuapp.com' target='_blank'></a></div><div class='github-link'><a href='https://github.com/nnakagaki/trello-clone' target='_blank'></a></div></div><p>This was the first one page app that I build using backbone and rails. The features ar pretty basic but I tried to clone the actual website closely in terms of CSS.</p><p class='features'>Features:</p><ul><li>Sortable lists and cards using JQuery UI</li><li>Basic user authentication</li><li>todo: facebook login</li><li>todo: actionmailer</li><li>todo: AJAX</li></ul></div></div>")
+
+    $("div.info-modal div.iframe").on("click", function (event) {
+      $("body").append("<iframe class='trello' src='https://norris-trello-clone.herokuapp.com'></iframe>");
+    })
+
+    $("div.info-modal video").on("mouseenter", function (event) {
+      if (event.currentTarget.readyState === 4) {
+        event.currentTarget.play();
+      }
+    });
+
+    $("div.info-modal video").on("mouseleave", function (event) {
+      if (event.currentTarget.readyState === 4) {
+        event.currentTarget.pause();
+        event.currentTarget.currentTime = 0;
+      }
+    });
+
+    setTimeout(function () {
+      $("div.info-modal").removeClass("init")
+      $("div.info-modal").addClass("mid")
+
+      setTimeout(function () {
+        $("div.info-modal").removeClass("mid")
+        $("div.info-modal").addClass("final")
+      }, 500)
+    }, 100);
+
+    $("div.shadow").removeClass("hidden");
+
+    $("div.window").addClass("hide-overflow")
+  });
+
+  $("div.projects li.chess").on("click", function (event) {
+    $("body").append("<div class='info-modal init'><h1>Chess</h1><div class='content'><div class='right'><video class='chess' src='<%= video_url('chess_demo.mp4') %>'></video><div class='github-link'><a href='https://github.com/nnakagaki/chess' target='_blank'></a></div></div><p>Game of chess made in Ruby</p><p class='features'>Features:</p><ul><li>Implements the less known rules such as castling and en-passant</li><li>Save/Load game files</li></ul></div></div>")
 
     $("div.info-modal div.iframe").on("click", function (event) {
       $("body").append("<iframe class='trello' src='https://norris-trello-clone.herokuapp.com'></iframe>");
@@ -498,12 +491,88 @@
 </script>
 
 <script>
+  var astCollab = function () {
+    $("div.projects li.asteroids button.collaborators").one("click", function (event) {
+      $("div.projects li.asteroids").addClass("flip");
+      setTimeout(function () {
+        $("div.projects li.asteroids").removeClass("flip");
+        astCollab();
+      }, 1500)
+    })
+  }
+
+  astCollab();
+
+  var snakeCollab = function () {
+    $("div.projects li.snake-game button.collaborators").one("click", function (event) {
+      $("div.projects li.snake-game").addClass("flip");
+      setTimeout(function () {
+        $("div.projects li.snake-game").removeClass("flip");
+        snakeCollab();
+      }, 1500)
+    })
+  }
+
+  snakeCollab();
+
+  var princessCollab = function () {
+    $("div.projects li.princess button.collaborators").one("click", function (event) {
+      $("div.projects li.princess").addClass("flip");
+      setTimeout(function () {
+        $("div.projects li.princess").removeClass("flip");
+        princessCollab();
+      }, 1500)
+    })
+  }
+
+  princessCollab();
+
+  var chessCollab = function () {
+    $("div.projects li.chess button.collaborators").one("click", function (event) {
+      $("div.projects li.chess").addClass("flip");
+      setTimeout(function () {
+        $("div.projects li.chess").removeClass("flip");
+        chessCollab();
+      }, 1500)
+    })
+  }
+
+  chessCollab();
+</script>
+
+<script>
   $("div.projects ul li").css("height", 51+$("div.projects ul li").width()*750/1250);
   $("div.projects ul li div.back img").css("height", $("div.projects ul li").width()*750/1250);
   $(window).on("resize", function (event) {
     $("div.projects ul li").css("height", 51+$("div.projects ul li").width()*750/1250);
     $("div.projects ul li div.back img").css("height", $("div.projects ul li").width()*750/1250);
   })
+
+  function toggleFullScreen(el) {
+    if (!document.fullscreenElement &&    // alternative standard method
+        !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+      if (el.requestFullscreen) {
+        el.requestFullscreen();
+      } else if (el.msRequestFullscreen) {
+        el.msRequestFullscreen();
+      } else if (el.mozRequestFullScreen) {
+        el.mozRequestFullScreen();
+      } else if (el.webkitRequestFullscreen) {
+        document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      }
+    }
+  }
+
 </script>
 
 </html>
