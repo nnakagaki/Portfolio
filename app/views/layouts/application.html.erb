@@ -223,8 +223,8 @@
     }, 100);
 
     $("div.shadow").removeClass("hidden");
-
-    $("div.window").addClass("hide-overflow")
+    window.yCorrToReturnTo = $(window).scrollTop();
+    $("div.window").addClass("hide-overflow");
   });
 
   $("div.projects li.princess").on("click", function (event) {
@@ -259,8 +259,8 @@
       }, 100);
 
       $("div.shadow").removeClass("hidden");
-
-      $("div.window").addClass("hide-overflow")
+      window.yCorrToReturnTo = $(window).scrollTop();
+      $("div.window").addClass("hide-overflow");
     }
   });
 
@@ -306,6 +306,7 @@
       }, 100);
 
       $("div.shadow").removeClass("hidden");
+      window.yCorrToReturnTo = $(window).scrollTop();
       $("div.window").addClass("hide-overflow");
     }
   });
@@ -343,6 +344,7 @@
       }, 100);
 
       $("div.shadow").removeClass("hidden");
+      window.yCorrToReturnTo = $(window).scrollTop();
       $("div.window").addClass("hide-overflow");
     }
   });
@@ -378,43 +380,45 @@
     }, 100);
 
     $("div.shadow").removeClass("hidden");
-
-    $("div.window").addClass("hide-overflow")
+    window.yCorrToReturnTo = $(window).scrollTop();
+    $("div.window").addClass("hide-overflow");
   });
 
   $("div.projects li.chess").on("click", function (event) {
-    $("body").append("<div class='info-modal init'><h1>Chess</h1><div class='content'><div class='right'><video class='chess' src='<%= video_url('chess_demo.mp4') %>'></video><div class='github-link'><a href='https://github.com/nnakagaki/chess' target='_blank'></a></div></div><p>Game of chess made in Ruby</p><p class='features'>Features:</p><ul><li>Implements the less known rules such as castling and en-passant</li><li>Save/Load game files</li></ul></div></div>")
+    if (event.target !== $("div.projects li.chess button.collaborators")[0]) {
+      $("body").append("<div class='info-modal init'><h1>Chess</h1><div class='content'><div class='right'><video class='chess' src='<%= video_url('chess_demo.mp4') %>'></video><div class='github-link'><a href='https://github.com/nnakagaki/chess' target='_blank'></a></div></div><p>Game of chess made in Ruby</p><p class='features'>Features:</p><ul><li>Implements the less known rules such as castling and en-passant</li><li>Save/Load game files</li></ul></div></div>")
 
-    $("div.info-modal div.iframe").on("click", function (event) {
-      $("body").append("<iframe class='trello' src='https://norris-trello-clone.herokuapp.com'></iframe>");
-    })
+      $("div.info-modal div.iframe").on("click", function (event) {
+        $("body").append("<iframe class='trello' src='https://norris-trello-clone.herokuapp.com'></iframe>");
+      })
 
-    $("div.info-modal video").on("mouseenter", function (event) {
-      if (event.currentTarget.readyState === 4) {
-        event.currentTarget.play();
-      }
-    });
+      $("div.info-modal video").on("mouseenter", function (event) {
+        if (event.currentTarget.readyState === 4) {
+          event.currentTarget.play();
+        }
+      });
 
-    $("div.info-modal video").on("mouseleave", function (event) {
-      if (event.currentTarget.readyState === 4) {
-        event.currentTarget.pause();
-        event.currentTarget.currentTime = 0;
-      }
-    });
-
-    setTimeout(function () {
-      $("div.info-modal").removeClass("init")
-      $("div.info-modal").addClass("mid")
+      $("div.info-modal video").on("mouseleave", function (event) {
+        if (event.currentTarget.readyState === 4) {
+          event.currentTarget.pause();
+          event.currentTarget.currentTime = 0;
+        }
+      });
 
       setTimeout(function () {
-        $("div.info-modal").removeClass("mid")
-        $("div.info-modal").addClass("final")
-      }, 500)
-    }, 100);
+        $("div.info-modal").removeClass("init")
+        $("div.info-modal").addClass("mid")
 
-    $("div.shadow").removeClass("hidden");
+        setTimeout(function () {
+          $("div.info-modal").removeClass("mid")
+          $("div.info-modal").addClass("final")
+        }, 500)
+      }, 100);
 
-    $("div.window").addClass("hide-overflow")
+      $("div.shadow").removeClass("hidden");
+      window.yCorrToReturnTo = $(window).scrollTop();
+      $("div.window").addClass("hide-overflow");
+    }
   });
 
   $("div.shadow").on("click", function (event) {
@@ -430,6 +434,8 @@
     }
 
     $("div.snake-game").addClass("hidden");
+
+    $(window).scrollTop(window.yCorrToReturnTo);
   });
 
   $("div.side-bar li.intro").on("click", function (event) {
