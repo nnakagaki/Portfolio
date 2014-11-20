@@ -42,11 +42,11 @@
 		<div class="projects">
       <h1>Projects</h1>
       <ul>
-        <li class="LLC"><video class="LLC" src="<%= video_url("LLC_demo.mp4") %>"></video><h1>Life Long Connections</h1></li>
+        <li class="LLC"><video class="LLC" src="<%= video_url("LLC_demo.ogg") %>"></video><h1>Life Long Connections</h1></li>
         <li class="asteroids">
           <div class="front">
             <button class="collaborators">Collaborators</button>
-            <video class="asteroids" src="<%= video_url("asteroids_gameplay_editted2.mp4") %>"></video>
+            <video class="asteroids" src="<%= video_url("asteroids_gameplay_editted2.ogg") %>"></video>
             <h1>Asteroids</h1>
           </div>
           <div class="back">
@@ -57,7 +57,7 @@
         <li class="princess">
           <div class="front">
             <button class="collaborators">Collaborators</button>
-            <video class="princess" src="<%= video_url("princess_demo_test.mp4") %>"></video>
+            <video class="princess" src="<%= video_url("princess_demo_test.ogg") %>"></video>
             <h1>Princess Diaries</h1>
           </div>
           <div class="back">
@@ -68,7 +68,7 @@
         <li class="snake-game">
           <div class="front">
             <button class="collaborators">Collaborators</button>
-            <video class="snake-game" src="<%= video_url("snake_gameplay_cropped.mp4") %>"></video>
+            <video class="snake-game" src="<%= video_url("snake_gameplay_cropped.ogg") %>"></video>
             <h1>Snake Game</h1>
           </div>
           <div class="back">
@@ -76,11 +76,11 @@
             <h1>Colin Day</h1>
           </div>
         </li>
-        <li class="trello"><video class="trello" src="<%= video_url("trello_demo_cropped.mp4") %>"></video><h1>Trello Clone</h1></li>
+        <li class="trello"><video class="trello" src="<%= video_url("trello_demo_cropped.ogg") %>"></video><h1>Trello Clone</h1></li>
         <li class="chess">
           <div class="front">
             <button class="collaborators">Collaborators</button>
-            <video class="chess" src="<%= video_url("chess_demo.mp4") %>"></video>
+            <video class="chess" src="<%= video_url("chess_demo.ogg") %>"></video>
             <h1>Chess</h1>
           </div>
           <div class="back">
@@ -222,7 +222,7 @@
   }
 
   $("div.projects li.LLC").on("click", function (event) {
-    $("body").append("<div class='info-modal init'><h1>Life Long Connections</h1><div class='content'><div class='right'><video class='LLC' src='<%= video_url('LLC_demo.mp4') %>'></video><div class='iframe'>Open as iframe</div><div class='new-tab'>Open in new tab<a href='http://www.life-long-connections.com' target='_blank'></a></div><div class='github-link'><a href='https://github.com/nnakagaki/facebook-clone' target='_blank'></a></div></div><p>This app is a clone of facebook and is my final project from AppAcademy. I originally built it purely in rails, but ported it over to backbone. It covers the major features in the facebook user show page such as posts, comments, likes, profile and cover photos. Chat, notifications, and friend requests is also implemented.</p><p class='features'>Features:</p><ul><li>Saves profile and cover photos with FilePicker</li><li>Private realtime chat with Pusher</li><li>Realtime notifications and friend requests with Pusher</li><li>Find where post was posted from with the Geocoder gem</li><li>Allows for embedding of any website with the Link Thumbnailer gem</li><li>Clicking notifications auto directs and scrolls to the post of interest</li><li>User authentication for chat rooms and notification channels</li></ul></div></div>")
+    $("body").append("<div class='info-modal init'><h1>Life Long Connections</h1><div class='content'><div class='right'><video class='LLC' src='<%= video_url('LLC_demo.ogg') %>'></video><div class='iframe'>Open as iframe</div><div class='new-tab'>Open in new tab<a href='http://www.life-long-connections.com' target='_blank'></a></div><div class='github-link'><a href='https://github.com/nnakagaki/facebook-clone' target='_blank'></a></div></div><p>This app is a clone of facebook and is my final project from AppAcademy. I originally built it purely in rails, but ported it over to backbone. It covers the major features in the facebook user show page such as posts, comments, likes, profile and cover photos. Chat, notifications, and friend requests is also implemented.</p><p class='features'>Features:</p><ul><li>Saves profile and cover photos with FilePicker</li><li>Private realtime chat with Pusher</li><li>Realtime notifications and friend requests with Pusher</li><li>Find where post was posted from with the Geocoder gem</li><li>Allows for embedding of any website with the Link Thumbnailer gem</li><li>Clicking notifications auto directs and scrolls to the post of interest</li><li>User authentication for chat rooms and notification channels</li></ul></div></div>")
 
     $("div.info-modal div.iframe").on("click", function (event) {
       $("body").append("<iframe class='LLC' src='https://life-long-connections.herokuapp.com'></iframe>");
@@ -233,7 +233,7 @@
 
   $("div.projects li.princess").on("click", function (event) {
     if (event.target !== $("div.projects li.princess button.collaborators")[0]) {
-      $("body").append("<div class='info-modal init'><h1>Princess Diaries</h1><div class='content'><div class='right'><video class='princess' src='<%= video_url('princess_demo_test.mp4') %>'></video><div class='iframe'>Open as iframe</div><div class='new-tab'>Open in new tab<a href='https://princess-diary.herokuapp.com' target='_blank'></a></div><div class='github-link'><a href='https://github.com/JohnSZhang/Crater' target='_blank'></a></div></div><p>First app that I made in Meteor.js. The app was originally made in rails and backbone, but was ported to meteor.</p><p class='features'>Features:</p><ul><li>Basic user authentification</li><li>Unit testing</li></ul></div></div>")
+      $("body").append("<div class='info-modal init'><h1>Princess Diaries</h1><div class='content'><div class='right'><video class='princess' src='<%= video_url('princess_demo_test.ogg') %>'></video><div class='iframe'>Open as iframe</div><div class='new-tab'>Open in new tab<a href='https://princess-diary.herokuapp.com' target='_blank'></a></div><div class='github-link'><a href='https://github.com/JohnSZhang/Crater' target='_blank'></a></div></div><p>First app that I made in Meteor.js. The app was originally made in rails and backbone, but was ported to meteor.</p><p class='features'>Features:</p><ul><li>Basic user authentification</li><li>Unit testing</li></ul></div></div>")
 
       $("div.info-modal div.iframe").on("click", function (event) {
         $("body").append("<iframe class='princess' src='https://princess-diary.herokuapp.com'></iframe>");
@@ -245,7 +245,7 @@
 
   $("div.projects li.asteroids div.front").on("click", function (event) {
     if (event.target !== $("div.projects li.asteroids button.collaborators")[0]) {
-      $("body").append("<div class='info-modal init'><h1>Asteroids</h1><div class='content'><div class='right'><video class='asteroids' src='<%= video_url('asteroids_gameplay_editted2.mp4') %>'></video><div class='iframe'>Play Game</div><div class='github-link'><a href='https://github.com/nnakagaki/asteroid-game' target='_blank'></a></div></div><p>Game made in JavaScript using Canvas.</p><p class='features'>Features:</p><ul><li>Audio visualizer in main screen</li><li>Smooth controls from ship following mouse position</li><li>Asteroids interact with music</li><li>Boss Battle</li><li>Awesome music from Misha Mishenko and Madeon!</li></ul><p class='features'>Controls:</p><ul><li>W or up-key to move ship towards mouse</li><li>S or down-key to move ship away from mouse</li><li>Click or space to shoot bullets</li><li>ESC to pause</li></ul></div></div>")
+      $("body").append("<div class='info-modal init'><h1>Asteroids</h1><div class='content'><div class='right'><video class='asteroids' src='<%= video_url('asteroids_gameplay_editted2.ogg') %>'></video><div class='iframe'>Play Game</div><div class='github-link'><a href='https://github.com/nnakagaki/asteroid-game' target='_blank'></a></div></div><p>Game made in JavaScript using Canvas.</p><p class='features'>Features:</p><ul><li>Audio visualizer in main screen</li><li>Smooth controls from ship following mouse position</li><li>Asteroids interact with music</li><li>Boss Battle</li><li>Awesome music from Misha Mishenko and Madeon!</li></ul><p class='features'>Controls:</p><ul><li>W or up-key to move ship towards mouse</li><li>S or down-key to move ship away from mouse</li><li>Click or space to shoot bullets</li><li>ESC to pause</li></ul></div></div>")
 
       $("div.info-modal div.iframe").on("click", function (event) {
         $("div.asteroids").removeClass("hidden");
@@ -267,7 +267,7 @@
 
   $("div.projects li.snake-game div.front").on("click", function (event) {
     if (event.target !== $("div.projects li.snake-game button.collaborators")[0]) {
-      $("body").append("<div class='info-modal init'><h1>Snake Game</h1><div class='content'><div class='right'><video class='snake-game' src='<%= video_url('snake_gameplay_cropped.mp4') %>'></video><div class='iframe'>Play Game</div><div class='github-link'><a href='https://github.com/nnakagaki/snake' target='_blank'></a></div></div><p>Game made in JavaScript using Canvas.</p><p class='features'>Features:</p><ul><li>Audio visualizer in main screen</li><li>Smooth controls from ship following mouse position</li><li>Asteroids interact with music</li><li>Boss Battle</li><li>Awesome music from Misha Mishenko and Madeon!</li></ul></div></div>")
+      $("body").append("<div class='info-modal init'><h1>Snake Game</h1><div class='content'><div class='right'><video class='snake-game' src='<%= video_url('snake_gameplay_cropped.ogg') %>'></video><div class='iframe'>Play Game</div><div class='github-link'><a href='https://github.com/nnakagaki/snake' target='_blank'></a></div></div><p>Game made in JavaScript using Canvas.</p><p class='features'>Features:</p><ul><li>Audio visualizer in main screen</li><li>Smooth controls from ship following mouse position</li><li>Asteroids interact with music</li><li>Boss Battle</li><li>Awesome music from Misha Mishenko and Madeon!</li></ul></div></div>")
 
       $("div.info-modal div.iframe").on("click", function (event) {
         $("div.snake-game").removeClass("hidden");
@@ -279,7 +279,7 @@
   });
 
   $("div.projects li.trello").on("click", function (event) {
-    $("body").append("<div class='info-modal init'><h1>Trello Clone</h1><div class='content'><div class='right'><video class='trello' src='<%= video_url('trello_demo_cropped.mp4') %>'></video><div class='iframe'>Open as iframe</div><div class='new-tab'>Open in new tab<a href='https://norris-trello-clone.herokuapp.com' target='_blank'></a></div><div class='github-link'><a href='https://github.com/nnakagaki/trello-clone' target='_blank'></a></div></div><p>This was the first one page app that I build using backbone and rails. The features ar pretty basic but I tried to clone the actual website closely in terms of CSS.</p><p class='features'>Features:</p><ul><li>Sortable lists and cards using JQuery UI</li><li>Basic user authentication</li><li>todo: facebook login</li><li>todo: actionmailer</li><li>todo: AJAX</li></ul></div></div>")
+    $("body").append("<div class='info-modal init'><h1>Trello Clone</h1><div class='content'><div class='right'><video class='trello' src='<%= video_url('trello_demo_cropped.ogg') %>'></video><div class='iframe'>Open as iframe</div><div class='new-tab'>Open in new tab<a href='https://norris-trello-clone.herokuapp.com' target='_blank'></a></div><div class='github-link'><a href='https://github.com/nnakagaki/trello-clone' target='_blank'></a></div></div><p>This was the first one page app that I build using backbone and rails. The features ar pretty basic but I tried to clone the actual website closely in terms of CSS.</p><p class='features'>Features:</p><ul><li>Sortable lists and cards using JQuery UI</li><li>Basic user authentication</li><li>todo: facebook login</li><li>todo: actionmailer</li><li>todo: AJAX</li></ul></div></div>")
 
     $("div.info-modal div.iframe").on("click", function (event) {
       $("body").append("<iframe class='trello' src='https://norris-trello-clone.herokuapp.com'></iframe>");
@@ -290,7 +290,7 @@
 
   $("div.projects li.chess").on("click", function (event) {
     if (event.target !== $("div.projects li.chess button.collaborators")[0]) {
-      $("body").append("<div class='info-modal init'><h1>Chess</h1><div class='content'><div class='right'><video class='chess' src='<%= video_url('chess_demo.mp4') %>'></video><div class='github-link'><a href='https://github.com/nnakagaki/chess' target='_blank'></a></div></div><p>Game of chess made in Ruby</p><p class='features'>Features:</p><ul><li>Implements the less known rules such as castling and en-passant</li><li>Save/Load game files</li></ul></div></div>")
+      $("body").append("<div class='info-modal init'><h1>Chess</h1><div class='content'><div class='right'><video class='chess' src='<%= video_url('chess_demo.ogg') %>'></video><div class='github-link'><a href='https://github.com/nnakagaki/chess' target='_blank'></a></div></div><p>Game of chess made in Ruby</p><p class='features'>Features:</p><ul><li>Implements the less known rules such as castling and en-passant</li><li>Save/Load game files</li></ul></div></div>")
 
       $("div.info-modal div.iframe").on("click", function (event) {
         $("body").append("<iframe class='trello' src='https://norris-trello-clone.herokuapp.com'></iframe>");
@@ -432,21 +432,33 @@
 
   var scrollFunc = function(sectionStr) {
     var section = $("main div."+sectionStr).last();
-    var sectionHeight = section.offset().top + section.outerHeight() - $(window).scrollTop();
+    if (section.offset().top <= $(window).scrollTop()) {
+      var sectionHeight = section.offset().top + section.outerHeight() - $(window).scrollTop();
+    } else if (section.offset().top + section.outerHeight() > $(window).scrollTop() + window.innerHeight) {
+      var sectionHeight = $(window).scrollTop() + window.innerHeight - section.offset().top;
+    } else {
+      var sectionHeight = section.outerHeight();
+    }
     console.log("offset "+section.offset().top);
     console.log("height "+section.outerHeight());
     console.log("window "+$(window).scrollTop());
     console.log(sectionHeight)
-    var sectionColor = Math.floor(255 * (1 - sectionHeight/window.innerHeight));
+    var sectionColor = Math.floor(255 * (1 - sectionHeight/section.outerHeight()));
     $("div.side-bar ul li."+sectionStr).css("color", "rgb("+sectionColor+",255,"+sectionColor+")");
   };
 
-  $(window).on("scroll", function(event) {
+  var scrollAllFunc = function () {
     scrollFunc("intro");
     scrollFunc("projects");
     scrollFunc("skills");
     scrollFunc("about");
     scrollFunc("contact");
+  };
+
+  scrollAllFunc();
+
+  $(window).on("scroll", function(event) {
+    scrollAllFunc();
   });
 </script>
 

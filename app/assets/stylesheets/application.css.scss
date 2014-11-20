@@ -157,6 +157,7 @@ div.side-bar {
 			margin: 10px 0 0 0;
 			cursor: pointer;
 			position: relative;
+			transition: 0.1s;
 
 			div.right-arrow {
 				position: absolute;
@@ -504,7 +505,7 @@ div.info-modal {
 
 	div.content {
 		position: absolute;
-		top: 67px;
+		top: 81px;
 		bottom: 0;
 		right: 0;
 		left: 0;
