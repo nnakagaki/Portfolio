@@ -428,7 +428,26 @@
   $("div.skills ul").css("width", Math.floor(($("div.skills h1").width())/120) * 120);
   $(window).on("resize", function (event) {
     $("div.skills ul").css("width", Math.floor(($("div.skills h1").width())/120) * 120);
-  })
+  });
+
+  var scrollFunc = function(sectionStr) {
+    var section = $("main div."+sectionStr).last();
+    var sectionHeight = section.offset().top + section.outerHeight() - $(window).scrollTop();
+    console.log("offset "+section.offset().top);
+    console.log("height "+section.outerHeight());
+    console.log("window "+$(window).scrollTop());
+    console.log(sectionHeight)
+    var sectionColor = Math.floor(255 * (1 - sectionHeight/window.innerHeight));
+    $("div.side-bar ul li."+sectionStr).css("color", "rgb("+sectionColor+",255,"+sectionColor+")");
+  };
+
+  $(window).on("scroll", function(event) {
+    scrollFunc("intro");
+    scrollFunc("projects");
+    scrollFunc("skills");
+    scrollFunc("about");
+    scrollFunc("contact");
+  });
 </script>
 
 </html>
