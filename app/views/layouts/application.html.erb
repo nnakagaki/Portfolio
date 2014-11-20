@@ -37,7 +37,7 @@
 		<div class="intro">
 			<h1>Hi! I'm Norris</h1>
 			<p>I am a web developer stationed in New York City, working with a variety of frameworks - Ruby on Rails, Backbone.js, and Meteor.js.</p>
-      <div class="next-section intro"></div>
+      <div class="next-section projects"></div>
 		</div>
 		<div class="projects">
       <h1>Projects</h1>
@@ -90,7 +90,7 @@
         </li>
         <div class="clear"></div>
       </ul>
-      <div class="next-section projects"></div>
+      <div class="next-section skills"></div>
     </div>
     <div class="skills">
       <h1>Skills</h1>
@@ -117,7 +117,7 @@
       </ul>
       <div class="clear"></div>
 
-      <div class="next-section skills"></div>
+      <div class="next-section about"></div>
     </div>
 		<div class="about">
       <h1>About</h1>
@@ -125,7 +125,7 @@
       <p><strong>In Cooper Union</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on top of being introduced to coding with Matlab, I was exposed to a variety of software. Much of them were engineering software that I used in class - AutoCAD for making drafts, SolidWorks for making 3D models, and Fluent and Comsol for fluid simulations. Interestingly, one of the classes that I coded the most in was neuro-science. I had many complex programming projects in that class. For example, one project was to model action potentials of neurons and find the firing rate with a gaussian frame to relate the firing rate to specific actions. After this class, I felt really confident with Matlab and felt like I could do anything I wanted in it. After graduating from Cooper Union with a bachelors degree in chemical engineering, I still was not sure what I wanted to do with my life so I decided to go for a masters in chemical engineering, again at Cooper Union.</p>
       <p><strong>The masters program</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;was rather laid back and when I was not working on my thesis, I had some time to think about what I wanted to do with my life, and to do what I wanted to do. One of the things I loved was breakdancing, and because of it I was exposed to some software that I had not had a chance to use while studying engineering. I decided to make <a href="https://www.youtube.com/channel/UCd8sPxNL3EC_QTshgLbfqSw" target="_blank">a youtube channel</a> for our school's club and that encouraged the learning of Premiere and AfterEffects - video editing software, Audacity - an audio editing software, and Photoshop - an image editing software. All of these seemed magical to me and I wanted to know more about how it was actually made. Furthermore, my thesis was entirely computer based and was based on hundreds of simulations of a bioreactor for the secondary treatment of wastewater, specifically 4-chlorophenol. By the time I graduated with a masters degree in chemical engineering, I realized that what I really liked doing was coding, and decided to pursue this career path by first learning at AppAcademy.</p>
       <p><strong>At AppAcademy</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I learned ruby, ruby on rails, sql, javascript, html, css, backbone, and meteor - essentials in becoming a web developer. Starting from ruby, I learned the fundamentals of programming. One of the projects was to make a simple version of ActiveRecord, which gave me a good understanding about the relational database structure that ruby on rails uses. Another project was to do the same thing with ruby on rails, giving me further understanding of how rails works in the back. After learning the fundamentals of developing websites, we finally got around to making the website actually look nice and have many cool features using javascript, html, css, backbone, and meteor.</p>
-      <div class="next-section about"></div>
+      <div class="next-section contact"></div>
     </div>
 		<div class="contact">
       <h1>Contact me</h1>
@@ -317,57 +317,15 @@
     $(window).scrollTop(window.yCorrToReturnTo);
   });
 
-  $("div.side-bar li.intro").on("click", function (event) {
+  $("div.side-bar li").on("click", function (event) {
     $('html, body').animate({
-        scrollTop: $("main div.intro").offset().top
+        scrollTop: $($("main div."+event.target.className).last()).offset().top
     }, 300);
   });
 
-  $("div.side-bar li.projects").on("click", function (event) {
+  $("div.next-section").on("click", function (event) {
     $('html, body').animate({
-        scrollTop: $("main div.projects").offset().top
-    }, 300);
-  });
-
-  $("div.side-bar li.skills").on("click", function (event) {
-    $('html, body').animate({
-        scrollTop: $("main div.skills").offset().top
-    }, 300);
-  });
-
-  $("div.side-bar li.about").on("click", function (event) {
-    $('html, body').animate({
-        scrollTop: $("main div.about").offset().top
-    }, 300);
-  });
-
-  $("div.side-bar li.contact").on("click", function (event) {
-    $('html, body').animate({
-        scrollTop: $("main div.contact").offset().top
-    }, 300);
-  });
-
-  $("div.next-section.intro").on("click", function (event) {
-    $('html, body').animate({
-        scrollTop: $("main div.projects").offset().top
-    }, 300);
-  });
-
-  $("div.next-section.projects").on("click", function (event) {
-    $('html, body').animate({
-        scrollTop: $("main div.skills").offset().top
-    }, 300);
-  });
-
-  $("div.next-section.skills").on("click", function (event) {
-    $('html, body').animate({
-        scrollTop: $("main div.about").offset().top
-    }, 300);
-  });
-
-  $("div.next-section.about").on("click", function (event) {
-    $('html, body').animate({
-        scrollTop: $("main div.contact").offset().top
+        scrollTop: $($("main div."+event.target.classList[1]).last()).offset().top
     }, 300);
   });
 
@@ -416,56 +374,19 @@
       });
     }
   });
-</script>
 
-<script>
-  var astCollab = function () {
-    $("div.projects li.asteroids button.collaborators").one("click", function (event) {
-      $("div.projects li.asteroids").addClass("flip");
+  var collab = function () {
+    $("div.projects li button.collaborators").one("click", function (event) {
+      var projectName = event.target.parentElement.parentElement.className;
+      $("div.projects li."+projectName).addClass("flip");
       setTimeout(function () {
-        $("div.projects li.asteroids").removeClass("flip");
-        astCollab();
-      }, 1500)
-    })
+        $("div.projects li."+projectName).removeClass("flip");
+        collab();
+      }, 1500);
+    });
   }
 
-  astCollab();
-
-  var snakeCollab = function () {
-    $("div.projects li.snake-game button.collaborators").one("click", function (event) {
-      $("div.projects li.snake-game").addClass("flip");
-      setTimeout(function () {
-        $("div.projects li.snake-game").removeClass("flip");
-        snakeCollab();
-      }, 1500)
-    })
-  }
-
-  snakeCollab();
-
-  var princessCollab = function () {
-    $("div.projects li.princess button.collaborators").one("click", function (event) {
-      $("div.projects li.princess").addClass("flip");
-      setTimeout(function () {
-        $("div.projects li.princess").removeClass("flip");
-        princessCollab();
-      }, 1500)
-    })
-  }
-
-  princessCollab();
-
-  var chessCollab = function () {
-    $("div.projects li.chess button.collaborators").one("click", function (event) {
-      $("div.projects li.chess").addClass("flip");
-      setTimeout(function () {
-        $("div.projects li.chess").removeClass("flip");
-        chessCollab();
-      }, 1500)
-    })
-  }
-
-  chessCollab();
+  collab();
 </script>
 
 <script>
