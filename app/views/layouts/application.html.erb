@@ -28,6 +28,12 @@
     this.play();
   }, false);
 
+  var isSafari = false;
+
+  if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+    isSafari = true;
+  }
+
 </script>
 
 <body>
@@ -42,7 +48,10 @@
 		<div class="projects">
       <h1>Projects</h1>
       <ul>
-        <li class="LLC"><video class="LLC" src="<%= video_url("LLC_demo.ogg") %>"></video><h1>Life Long Connections</h1></li>
+        <li class="LLC">
+          <video class="LLC" src="<%= video_url("LLC_demo.ogg") %>"></video>
+          <h1>Life Long Connections</h1>
+        </li>
         <li class="asteroids">
           <div class="front">
             <button class="collaborators">Collaborators</button>
@@ -94,25 +103,26 @@
     </div>
     <div class="skills">
       <h1>Skills</h1>
+      <div class="info"></div>
       <ul>
-        <li><img src="<%= image_url('rails.png') %>"></li>
-        <li><img src="<%= image_url('backbone.png') %>"></li>
-        <li><img src="<%= image_url('meteor.png') %>"></li>
-        <li><img src="<%= image_url('javascript.png') %>"></li>
-        <li><img src="<%= image_url('css.png') %>"></li>
-        <li><img src="<%= image_url('html.png') %>"></li>
-        <li><img src="<%= image_url('node.png') %>"></li>
-        <li><img src="<%= image_url('ruby.png') %>"></li>
-        <li><img src="<%= image_url('postgres.png') %>"></li>
-        <li><img src="<%= image_url('matlab.png') %>"></li>
-        <li><img src="<%= image_url('photoshop.png') %>"></li>
-        <li><img src="<%= image_url('primiere.png') %>"></li>
-        <li><img src="<%= image_url('aftereffects.png') %>"></li>
-        <li><img src="<%= image_url('audacity.png') %>"></li>
-        <li><img src="<%= image_url('blender.png') %>"></li>
-        <li><img src="<%= image_url('gimp.png') %>"></li>
-        <li><img src="<%= image_url('solidworks.png') %>"></li>
-        <li><img src="<%= image_url('autocad.png') %>"></li>
+        <li class="Ruby-on-Rails"><img src="<%= image_url('rails.png') %>"></li>
+        <li class="Backbone.js"><img src="<%= image_url('backbone.png') %>"></li>
+        <li class="Meteor.js"><img src="<%= image_url('meteor.png') %>"></li>
+        <li class="JaveScript"><img src="<%= image_url('javascript.png') %>"></li>
+        <li class="CSS"><img src="<%= image_url('css.png') %>"></li>
+        <li class="HTML"><img src="<%= image_url('html.png') %>"></li>
+        <li class="Node.js"><img src="<%= image_url('node.png') %>"></li>
+        <li class="Ruby"><img src="<%= image_url('ruby.png') %>"></li>
+        <li class="PostgreSQL"><img src="<%= image_url('postgres.png') %>"></li>
+        <li class="Matlab"><img src="<%= image_url('matlab.png') %>"></li>
+        <li class="Photoshop"><img src="<%= image_url('photoshop.png') %>"></li>
+        <li class="Primiere"><img src="<%= image_url('primiere.png') %>"></li>
+        <li class="After-Effects"><img src="<%= image_url('aftereffects.png') %>"></li>
+        <li class="Audacity"><img src="<%= image_url('audacity.png') %>"></li>
+        <li class="Blender"><img src="<%= image_url('blender.png') %>"></li>
+        <li class="Gimp"><img src="<%= image_url('gimp.png') %>"></li>
+        <li class="Solidworks"><img src="<%= image_url('solidworks.png') %>"></li>
+        <li class="AutoCAD"><img src="<%= image_url('autocad.png') %>"></li>
         <div class="clear"></div>
       </ul>
       <div class="clear"></div>
@@ -159,6 +169,8 @@
     <ul class="links">
       <li><a class="github" href='https://github.com/nnakagaki' target='_blank'></a></li>
       <li><a class="linkedin" href='https://www.linkedin.com/pub/norris-nakagaki/26/6b2/85b' target='_blank'></a></li>
+      <li><a class="codeeval" href='http://www.codeeval.com/profile/nnakagaki/' target='_blank'></a></li>
+      <li><a class="project-euler" href='https://projecteuler.net/profile/norichan.png' target='_blank'></a></li>
       <li><a class="facebook" href='https://www.facebook.com/itsfinetoday' target='_blank'></a></li>
       <li><a class="tumblr" href='https://www.tumblr.com/blog/nnakagaki' target='_blank'></a></li>
       <li><a class="deviantart" href='http://norisuke.deviantart.com/' target='_blank'></a></li>
@@ -439,10 +451,6 @@
     } else {
       var sectionHeight = section.outerHeight();
     }
-    console.log("offset "+section.offset().top);
-    console.log("height "+section.outerHeight());
-    console.log("window "+$(window).scrollTop());
-    console.log(sectionHeight)
     var sectionColor = Math.floor(255 * (1 - sectionHeight/section.outerHeight()));
     $("div.side-bar ul li."+sectionStr).css("color", "rgb("+sectionColor+",255,"+sectionColor+")");
   };
@@ -460,6 +468,49 @@
   $(window).on("scroll", function(event) {
     scrollAllFunc();
   });
+
+  if (isSafari) {
+    $("main div.projects ul li.LLC video")[0].src = "<%= video_url('LLC_demo.mp4') %>";
+    $("main div.projects ul li.asteroids video")[0].src = "<%= video_url('asteroids_gameplay_editted2.mp4') %>";
+    $("main div.projects ul li.princess video")[0].src = "<%= video_url('princess_demo_test.mp4') %>";
+    $("main div.projects ul li.snake-game video")[0].src = "<%= video_url('snake_gameplay_cropped.mp4') %>";
+    $("main div.projects ul li.trello video")[0].src = "<%= video_url('trello_demo_cropped.mp4') %>";
+    $("main div.projects ul li.chess video")[0].src = "<%= video_url('chess_demo.mp4') %>";
+  }
+
+  $("div.side-bar ul.links li a").on("mouseenter", function (event) {
+    $(event.currentTarget).addClass("hover-animation");
+    var intLength = 2000
+    var intLength2 = 500
+    var timeoutFunc = function () {
+      heartbeat = setTimeout(function () {
+        intLength = intLength * 0.9;
+        intLength2 = intLength2 * 0.9;
+        $(event.currentTarget).addClass("add-contrast");
+        heartbeat2 = setTimeout(function () {
+          $(event.currentTarget).removeClass("add-contrast");
+        }, intLength2)
+        timeoutFunc()
+      }, intLength)
+    }
+
+    timeoutFunc()
+  });
+
+  $("div.side-bar ul.links li a").on("mouseleave", function (event) {
+    $(event.currentTarget).removeClass("hover-animation");
+    $(event.currentTarget).removeClass("add-contrast");
+    clearInterval(heartbeat);
+    clearTimeout(heartbeat2);
+  });
+
+  $("main div.skills ul li").on("click", function (event) {
+    $("main div.skills ul li").removeClass("selected");
+    $(event.currentTarget).addClass("selected");
+    $("main div.skills div.info").addClass("active");
+    $("main div.skills div.info").html("<h2>"+event.currentTarget.classList[0]+"</h2><img src="+$(event.currentTarget).find("img")[0].src+">")
+  })
+
 </script>
 
 </html>

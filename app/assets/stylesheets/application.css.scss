@@ -77,7 +77,7 @@ div.side-bar {
 	top: 0;
 	bottom: 0;
 	width: 100px;
-	min-height: 600px;
+	min-height: 650px;
 	background: linear-gradient(to right, rgb(50,50,200),rgb(50,50,100));
 
 	div.triangle {
@@ -195,6 +195,7 @@ div.side-bar {
 				bottom: 0;
 				left: 0;
 				right: 0;
+				transition: 0.2s;
 
 				&.github {
 					background-image: image-url("github.png");
@@ -204,6 +205,18 @@ div.side-bar {
 				&.linkedin {
 					background-image: image-url("linkedin.png");
 					background-size: cover;
+				}
+
+				&.codeeval {
+					background-image: image-url("codeeval.jpg");
+					background-size: cover;
+					border-radius: 5px;
+				}
+
+				&.project-euler {
+					background-image: image-url("project_euler.png");
+					background-size: cover;
+					border-radius: 5px;
 				}
 
 				&.facebook {
@@ -224,6 +237,21 @@ div.side-bar {
 				&.youtube {
 					background-image: image-url("youtube.png");
 					background-size: cover;
+				}
+
+				&.hover-animation {
+					-webkit-transform: rotate(-20deg);
+					-moz-transform: rotate(-20deg);
+					-o-transform: rotate(-20deg);
+					-ms-transform: rotate(-20deg);
+					transform: rotate(-20deg);
+
+					&.add-contrast {
+						-webkit-filter: contrast(10);
+						-moz-filter: contrast(10);
+						-o-filter:  contrast(10);
+						-ms-filter:  contrast(10);
+					}
 				}
 			}
 		}
@@ -443,12 +471,49 @@ main {
 		}
 
 		&.skills {
+			div.info {
+				background: white;
+				width: 100%;
+				border-radius: 10px;
+				box-shadow: 0 0 0.5em grey;
+				height: 0;
+				transition: 0.5s;
+				overflow: hidden;
+
+				&.active {
+					height: 200px;
+					margin-bottom: 50px;
+				}
+
+				h2 {
+					font-family: 'Oswald', sans-serif;
+					font-size: 30px;
+					text-align: center;
+					padding: 10px 0 5px 0;
+					border-bottom: 1px solid grey;
+					background: rgb(200,250,200)
+				}
+
+				img {
+					margin: 15px;
+				}
+			}
+
 			ul {
 				margin: auto;
 
 				li {
 					float: left;
 					margin: 10px;
+
+					&.selected {
+						margin: 0;
+
+						img {
+							width: 120px;
+							height: 120px;
+						}
+					}
 
 					&:hover {
 						margin: 0;
