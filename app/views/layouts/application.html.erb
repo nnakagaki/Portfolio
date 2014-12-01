@@ -505,10 +505,22 @@
   });
 
   $("main div.skills ul li").on("click", function (event) {
+    $('html, body').animate({
+        scrollTop: $($("main div.skills").last()).offset().top + 100
+    }, 300);
+
     $("main div.skills ul li").removeClass("selected");
     $(event.currentTarget).addClass("selected");
-    $("main div.skills div.info").addClass("active");
-    $("main div.skills div.info").html("<h2>"+event.currentTarget.classList[0]+"</h2><img src="+$(event.currentTarget).find("img")[0].src+">")
+    if ($("main div.skills div.info.active").length > 0) {
+      $("main div.skills div.info").removeClass("active");
+      setTimeout(function() {
+        $("main div.skills div.info").addClass("active");
+        $("main div.skills div.info").html("<h2>"+event.currentTarget.classList[0]+"</h2><img src="+$(event.currentTarget).find("img")[0].src+"><div class='clear'></div>")
+      }, 500);
+    } else {
+      $("main div.skills div.info").addClass("active");
+      $("main div.skills div.info").html("<h2>"+event.currentTarget.classList[0]+"</h2><img src="+$(event.currentTarget).find("img")[0].src+"><div class='clear'></div>")
+    }
   })
 
 </script>
