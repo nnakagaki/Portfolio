@@ -1,0 +1,267 @@
+main {
+	min-width: 1000px;
+
+	.main-section {
+		padding: 100px 100px 0 230px;
+		background: linear-gradient(rgb(255,255,255),rgb(230,230,245));
+		position: relative;
+	}
+
+	.next-section {
+		margin-top: 100px;
+		text-align: center;
+		
+		.next-section-triangle {
+			display: inline;
+			width: 0;
+			border-top: 30px solid rgb(100,100,255);
+			border-right: 30px solid transparent;
+			border-bottom: 30px solid transparent;
+			border-left: 30px solid transparent;
+
+			&:hover {
+				border-top: 30px solid rgb(150,150,255);
+				cursor: pointer;
+			}
+		}
+	}
+
+	h1 {
+		font-family: 'Righteous', cursive;
+		font-size: 50px;
+		text-align: center;
+		margin: 0 0 50px 0;
+		color: rgb(50,50,50);
+	}
+
+	.intro {
+		p {
+			font-size: 35px;
+			color: rgb(100,100,100);
+			line-height: 1.7;
+		}
+	}
+
+	.projects {
+		ul {
+			li {
+				width: 31.33%;
+				float: left;
+				margin: 1%;
+				background: white;
+				border-radius: 0 0 15px 15px;
+				box-shadow: 0 0 1em grey;
+				position: relative;
+				transition: transform 0.6s;
+
+				&.flip {
+					transform: perspective( 600px ) rotateY( 180deg );
+					transform-style: preserve-3d;
+					-webkit-backface-visibility: hidden;
+					backface-visibility: hidden;
+				}
+
+				&:hover {
+					background: rgb(225,255,225);
+				}
+
+				button {
+					position: absolute;
+					right: 0;
+					top: 0;
+					padding: 5px;
+					background: rgb(200,200,200);
+					border-radius: 0 0 0 10px;
+
+					&:hover {
+						background: rgb(250,250,250);
+					}
+				}
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+
+				video {
+					width: 100%;
+					height: auto;
+				}
+
+				h1 {
+					font-family: 'Oswald', sans-serif;
+					font-size: 18px;
+					padding: 5px 0 15px 0;
+					margin: 0;
+				}
+			}
+
+			div.front {
+				position: absolute;
+				z-index: 10;
+				transform: rotateY(0deg);
+				-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+			}
+
+			div.back {
+				width: 100%;
+				position: absolute;
+				transform: rotateY(180deg);
+				-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+				background: white;
+				border-radius: 0 0 15px 15px;
+				box-shadow: 0 0 1em grey;
+
+				h1 {
+					padding: 10px 0 18px 0;
+				}
+			}
+		}
+	}
+
+	.about {
+		p {
+			font-size: 20px;
+			color: rgb(100,100,100);
+			line-height: 1.7;
+			margin-bottom: 20px;
+			position: relative;
+
+			strong {
+				display: block;
+				position: absolute;
+				top: -12px;
+				font-size: 30px;
+				color: rgb(150,100,150);
+			}
+		}
+	}
+
+	.contact {
+		input.name {
+			float: left;
+			width: 45%;
+			padding: 1%;
+			border: 1px solid rgb(150,150,150);
+			margin-bottom: 20px;
+			font-size: 20px;
+			border-radius: 10px;
+			background: white;
+			position: relative;
+
+			&:focus {
+				box-shadow: 0 0 0.5em rgb(120,120,120);
+			}
+		}
+
+		input.email {
+			float: right;
+			width: 45%;
+			padding: 1%;
+			border: 1px solid rgb(150,150,150);
+			margin-bottom: 20px;
+			font-size: 20px;
+			border-radius: 10px;
+			background: white;
+
+			&:focus {
+				box-shadow: 0 0 0.5em rgb(120,120,120);
+			}
+		}
+
+		textarea {
+			width: 98%;
+			padding: 1%;
+			border-radius: 10px;
+			border: 1px solid rgb(150,150,150);
+			resize: none;
+			font-size: 20px;
+			height: 150px;
+			background: white;
+
+			&:focus {
+				box-shadow: 0 0 0.5em rgb(120,120,120);
+			}
+		}
+
+		input[type="submit"] {
+			margin-top: 10px;
+			padding: 3px 6px 3px 6px;
+			background: linear-gradient(rgb(200,200,255), rgb(150,150,200));
+			border-radius: 5px;
+
+			&:focus {
+				background: linear-gradient(rgb(150,150,200), rgb(200,200,255));
+			}
+		}
+
+		div.message {
+			text-size: 20px;
+			margin-top: 10px;
+			text-align: center;
+			position: absolute;
+			bottom: 50px;
+			right: 0;
+			left: 0;
+		}
+	}
+
+	.skills {
+		.info {
+			background: white;
+			width: 100%;
+			border-radius: 10px;
+			box-shadow: 0 0 0.5em grey;
+			height: 0;
+			transition: 0.5s;
+			overflow: hidden;
+
+			&.active {
+				height: 200px;
+				margin-bottom: 50px;
+			}
+
+			h2 {
+				font-family: 'Oswald', sans-serif;
+				font-size: 30px;
+				text-align: center;
+				padding: 10px 0 5px 0;
+				border-bottom: 1px solid grey;
+				background: rgb(200,250,200)
+			}
+
+			img {
+				margin: 15px;
+			}
+		}
+
+		ul {
+			margin: auto;
+
+			li {
+				float: left;
+				margin: 10px;
+
+				&.selected {
+					margin: 0;
+
+					img {
+						width: 120px;
+						height: 120px;
+					}
+				}
+
+				&:hover {
+					margin: 0;
+
+					img {
+						width: 120px;
+						height: 120px;
+					}
+				}
+			}
+		}
+	}
+}

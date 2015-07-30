@@ -1,0 +1,179 @@
+.side-bar {
+	font-family: 'Righteous', cursive;
+	z-index: 98;
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 100px;
+	min-height: 650px;
+	background: linear-gradient(to right, rgb(50,50,200),rgb(50,50,100));
+
+	.triangle {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 0;
+		width: 0;
+		border-top: 100px solid orange;
+		border-right: 100px solid transparent;
+		border-bottom: 100px solid transparent;
+		border-left: 100px solid orange;
+	}
+
+	.top-curve {
+		position: absolute;
+		right: -200px;
+		top: 50px;
+		width: 100px;
+		height: 50px;
+		border-left: 20px solid rgb(50,50,100);
+		border-top: 20px solid rgb(50,50,100);
+		border-radius: 50px 0 0 0;
+	}
+
+	.top-curve2 {
+		position: absolute;
+		right: -30px;
+		top: 216px;
+		width: 30px;
+		height: 30px;
+		border-left: 20px solid rgb(50,50,100);
+		border-top: 20px solid rgb(50,50,100);
+		border-radius: 50px 0 0 0;
+	}
+
+	.top-circle {
+		position: absolute;
+		border: 70px solid rgb(100,50,150);
+		border-radius: 100px;
+		width: 60px;
+		height: 100px;
+	}
+
+	h1 {
+		position: absolute;
+		right: -340px;
+		font-size: 30px;
+		background: linear-gradient(rgb(50,50,200), rgb(50,50,100));
+		padding: 13px 20px 19px 30px;
+		color: white;
+		border-radius: 0 0 20px 0;
+	}
+
+	img {
+		position: absolute;
+		margin: 25px;
+		width: 150px;
+		height: auto;
+	}
+
+	ul {
+		margin: 280px 0 0 8px;
+		color: white;
+		font-size: 20px;
+
+		li {
+			margin: 10px 0 0 0;
+			cursor: pointer;
+			position: relative;
+			transition: 0.1s;
+
+			div.right-arrow {
+				position: absolute;
+				left: -18px;
+				top: 3px;
+				border-top: 8px solid transparent;
+				border-right: 8px solid transparent;
+				border-bottom: 8px solid transparent;
+				border-left: 10px solid white;
+			}
+
+			&:hover {
+				margin-left: 10px;
+			}
+		}
+	}
+
+	ul.links {
+		position: absolute;
+		bottom: 0;
+		margin: 0;
+		right: 0;
+		left: 0;
+
+		li {
+			float: left;
+			width: 35px;
+			height: 35px;
+			margin: 0 0 10px 10px;
+			position: relative;
+
+			a {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				transition: 0.2s;
+
+				&.github {
+					background-image: image-url("github.png");
+					background-size: cover;
+				}
+
+				&.linkedin {
+					background-image: image-url("linkedin.png");
+					background-size: cover;
+				}
+
+				&.codeeval {
+					background-image: image-url("codeeval.jpg");
+					background-size: cover;
+					border-radius: 5px;
+				}
+
+				&.project-euler {
+					background-image: image-url("project_euler.png");
+					background-size: cover;
+					border-radius: 5px;
+				}
+
+				&.facebook {
+					background-image: image-url("facebook.png");
+					background-size: cover;
+				}
+
+				&.tumblr {
+					background-image: image-url("tumblr.png");
+					background-size: cover;
+				}
+
+				&.deviantart {
+					background-image: image-url("deviantart.png");
+					background-size: cover;
+				}
+
+				&.youtube {
+					background-image: image-url("youtube.png");
+					background-size: cover;
+				}
+
+				&.hover-animation {
+					-webkit-transform: rotate(-20deg);
+					-moz-transform: rotate(-20deg);
+					-o-transform: rotate(-20deg);
+					-ms-transform: rotate(-20deg);
+					transform: rotate(-20deg);
+
+					&.add-contrast {
+						-webkit-filter: contrast(10);
+						-moz-filter: contrast(10);
+						-o-filter:  contrast(10);
+						-ms-filter:  contrast(10);
+					}
+				}
+			}
+		}
+	}
+}

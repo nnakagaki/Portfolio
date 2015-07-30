@@ -1,0 +1,33 @@
+.hidden {
+	display: none;
+}
+
+.hide-overflow {
+	overflow: hidden;
+}
+
+.clear {
+	clear: both;
+	width: 0;
+}
+
+.shadow {
+	position: fixed;
+	z-index: 99;
+	height: 100vh;
+	width: 100vw;
+	background: rgba(0,0,0,0.75)
+}
+
+.window {
+	height: 100vh;
+	width: 100vw;
+}
+
+.rotate {
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}

@@ -11,17 +11,17 @@
 </head>
 
 <script>
-  Asteroids.Images = {};
-  Asteroids.Images.menu = new Image();
-  Asteroids.Images.menu.src = "<%= image_url('outer-space.jpg') %>";
-  Asteroids.Images.gameMode2 = new Image();
-  Asteroids.Images.gameMode2.src = "<%= image_url('island-noplanet.jpg') %>";
-  Asteroids.Images.hugeAsteroid = new Image();
+  Asteroids.Images                  = {};
+  Asteroids.Images.menu             = new Image();
+  Asteroids.Images.menu.src         = "<%= image_url('outer-space.jpg') %>";
+  Asteroids.Images.gameMode2        = new Image();
+  Asteroids.Images.gameMode2.src    = "<%= image_url('island-noplanet.jpg') %>";
+  Asteroids.Images.hugeAsteroid     = new Image();
   Asteroids.Images.hugeAsteroid.src = "<%= image_url('isflaksplanetResized.png') %>";
 
   Asteroids.Music.gameAudio1 = new Audio("<%= audio_url('test.mp3') %>");
   Asteroids.Music.gameAudio2 = new Audio("<%= audio_url('the-island-madeon-remix.mp3') %>");
-  Asteroids.Music.menuAudio = new Audio("<%= audio_url('menu.mp3') %>");
+  Asteroids.Music.menuAudio  = new Audio("<%= audio_url('menu.mp3') %>");
 
   Asteroids.Music.menuAudio.addEventListener('ended', function() {
     this.currentTime = 0;
@@ -37,106 +37,14 @@
 </script>
 
 <body>
+  <%= render :partial => 'shared/sidebar' %>
   <div class="shadow hidden"></div>
   <div class="window">
 	<main>
-		<div class="intro">
-			<h1>Hi! I'm Norris</h1>
-			<p>I am a web developer stationed in New York City, working with a variety of frameworks - Ruby on Rails, Backbone.js, and Meteor.js.</p>
-      <div class="next-section projects"></div>
-		</div>
-		<div class="projects">
-      <h1>Projects</h1>
-      <ul>
-        <li class="LLC">
-          <video class="LLC" src="<%= video_url("LLC_demo.ogg") %>"></video>
-          <h1>Life Long Connections</h1>
-        </li>
-        <li class="asteroids">
-          <div class="front">
-            <video class="asteroids" src="<%= video_url("asteroids_gameplay_editted2.ogg") %>"></video>
-            <button class="collaborators">Collaborators</button>
-            <h1>Asteroids</h1>
-          </div>
-          <div class="back">
-            <img src="<%= image_url("zak.png") %>">
-            <h1>Zachary Stallings</h1>
-          </div>
-        </li>
-        <li class="princess">
-          <div class="front">
-            <video class="princess" src="<%= video_url("princess_demo_test.ogg") %>"></video>
-            <button class="collaborators">Collaborators</button>
-            <h1>Princess Diaries</h1>
-          </div>
-          <div class="back">
-            <img src="<%= image_url("john.jpg") %>">
-            <h1>John Zhang</h1>
-          </div>
-        </li>
-        <li class="snake-game">
-          <div class="front">
-            <video class="snake-game" src="<%= video_url("snake_gameplay_cropped.ogg") %>"></video>
-            <button class="collaborators">Collaborators</button>
-            <h1>Snake Game</h1>
-          </div>
-          <div class="back">
-            <img src="<%= image_url("colin.jpg") %>">
-            <h1>Colin Day</h1>
-          </div>
-        </li>
-        <li class="trello"><video class="trello" src="<%= video_url("trello_demo_cropped.ogg") %>"></video><h1>Trello Clone</h1></li>
-        <li class="chess">
-          <div class="front">
-            <video class="chess" src="<%= video_url("chess_demo.ogg") %>"></video>
-            <button class="collaborators">Collaborators</button>
-            <h1>Chess</h1>
-          </div>
-          <div class="back">
-            <img src="<%= image_url("colin_jackson.jpg") %>">
-            <h1>Colin Jackson</h1>
-          </div>
-        </li>
-        <div class="clear"></div>
-      </ul>
-      <div class="next-section skills"></div>
-    </div>
-    <div class="skills">
-      <h1>Skills</h1>
-      <div class="info"></div>
-      <ul>
-        <li class="Ruby-on-Rails"><img src="<%= image_url('rails.png') %>"></li>
-        <li class="Backbone.js"><img src="<%= image_url('backbone.png') %>"></li>
-        <li class="Meteor.js"><img src="<%= image_url('meteor.png') %>"></li>
-        <li class="JaveScript"><img src="<%= image_url('javascript.png') %>"></li>
-        <li class="CSS"><img src="<%= image_url('css.png') %>"></li>
-        <li class="HTML"><img src="<%= image_url('html.png') %>"></li>
-        <li class="Node.js"><img src="<%= image_url('node.png') %>"></li>
-        <li class="Ruby"><img src="<%= image_url('ruby.png') %>"></li>
-        <li class="PostgreSQL"><img src="<%= image_url('postgres.png') %>"></li>
-        <li class="Matlab"><img src="<%= image_url('matlab.png') %>"></li>
-        <li class="Photoshop"><img src="<%= image_url('photoshop.png') %>"></li>
-        <li class="Primiere"><img src="<%= image_url('primiere.png') %>"></li>
-        <li class="After-Effects"><img src="<%= image_url('aftereffects.png') %>"></li>
-        <li class="Audacity"><img src="<%= image_url('audacity.png') %>"></li>
-        <li class="Blender"><img src="<%= image_url('blender.png') %>"></li>
-        <li class="Gimp"><img src="<%= image_url('gimp.png') %>"></li>
-        <li class="Solidworks"><img src="<%= image_url('solidworks.png') %>"></li>
-        <li class="AutoCAD"><img src="<%= image_url('autocad.png') %>"></li>
-        <div class="clear"></div>
-      </ul>
-      <div class="clear"></div>
-
-      <div class="next-section about"></div>
-    </div>
-		<div class="about">
-      <h1>About</h1>
-      <p><strong>I started coding&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when I was in college (Cooper Union), where I needed to solve differential equations and do various numerical analyses using Matlab. As a chemical engineering major, I used numerical analysis to solve problems and to simulate various equipments such as heat exchangers and reactors. Though Matlab does come with its own differential equation solvers, I often found myself using my own runge-kutta solver. I very much enjoyed coding and it became a hobby to make programs that solved games, such as "Sudoku" and "Move the Box", and problems such as the ones in <a href="https://projecteuler.net/" target="_blank">Project Euler</a>.</p>
-      <p><strong>In Cooper Union</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on top of being introduced to coding with Matlab, I was exposed to a variety of software. Much of them were engineering software that I used in class - AutoCAD for making drafts, SolidWorks for making 3D models, and Fluent and Comsol for fluid simulations. Interestingly, one of the classes that I coded the most in was neuro-science. I had many complex programming projects in that class. For example, one project was to model action potentials of neurons and find the firing rate with a gaussian frame to relate the firing rate to specific actions. After this class, I felt really confident with Matlab and felt like I could do anything I wanted in it. After graduating from Cooper Union with a bachelors degree in chemical engineering, I still was not sure what I wanted to do with my life so I decided to go for a masters in chemical engineering, again at Cooper Union.</p>
-      <p><strong>The masters program</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;was rather laid back and when I was not working on my thesis, I had some time to think about what I wanted to do with my life, and to do what I wanted to do. One of the things I loved was breakdancing, and because of it I was exposed to some software that I had not had a chance to use while studying engineering. I decided to make <a href="https://www.youtube.com/channel/UCd8sPxNL3EC_QTshgLbfqSw" target="_blank">a youtube channel</a> for our school's club and that encouraged the learning of Premiere and AfterEffects - video editing software, Audacity - an audio editing software, and Photoshop - an image editing software. All of these seemed magical to me and I wanted to know more about how it was actually made. Furthermore, my thesis was entirely computer based and was based on hundreds of simulations of a bioreactor for the secondary treatment of wastewater, specifically 4-chlorophenol. By the time I graduated with a masters degree in chemical engineering, I realized that what I really liked doing was coding, and decided to pursue this career path by first learning at AppAcademy.</p>
-      <p><strong>At AppAcademy</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I learned ruby, ruby on rails, sql, javascript, html, css, backbone, and meteor - essentials in becoming a web developer. Starting from ruby, I learned the fundamentals of programming. One of the projects was to make a simple version of ActiveRecord, which gave me a good understanding about the relational database structure that ruby on rails uses. Another project was to do the same thing with ruby on rails, giving me further understanding of how rails works in the back. After learning the fundamentals of developing websites, we finally got around to making the website actually look nice and have many cool features using javascript, html, css, backbone, and meteor.</p>
-      <div class="next-section contact"></div>
-    </div>
+		<%= render :partial => 'shared/intro_section' %>
+		<%= render :partial => 'shared/projects_section' %>
+    <%= render :partial => 'shared/skills_section' %>
+    <%= render :partial => 'shared/about_section' %>
 		<div class="contact">
       <h1>Contact me</h1>
       <form class="contact-me">
@@ -150,40 +58,12 @@
 	</main>
   </div>
 
-	<div class="side-bar">
-    <div class="top-curve"></div>
-    <div class="top-curve2"></div>
-    <div class="cover-box"></div>
-    <h1>Norris Nakagaki</h1>
-    <div class="triangle"></div>
-    <div class="top-circle"></div>
-		<img src="<%= image_url("norris-nakagaki-cropped.png") %>">
-		<ul>
-			<li class="intro"><div class="right-arrow"></div>Intro</li>
-			<li class="projects"><div class="right-arrow"></div>Projects</li>
-      <li class="skills"><div class="right-arrow"></div>Skills</li>
-			<li class="about"><div class="right-arrow"></div>About</li>
-			<li class="contact"><div class="right-arrow"></div>Contact</li>
-		</ul>
-
-    <ul class="links">
-      <li><a class="github" href='https://github.com/nnakagaki' target='_blank'></a></li>
-      <li><a class="linkedin" href='https://www.linkedin.com/pub/norris-nakagaki/26/6b2/85b' target='_blank'></a></li>
-      <li><a class="codeeval" href='http://www.codeeval.com/profile/nnakagaki/' target='_blank'></a></li>
-      <li><a class="project-euler" href='https://projecteuler.net/profile/norichan.png' target='_blank'></a></li>
-      <li><a class="facebook" href='https://www.facebook.com/itsfinetoday' target='_blank'></a></li>
-      <li><a class="tumblr" href='https://www.tumblr.com/blog/nnakagaki' target='_blank'></a></li>
-      <li><a class="deviantart" href='http://norisuke.deviantart.com/' target='_blank'></a></li>
-      <li><a class="youtube" href='https://www.youtube.com/channel/UCd8sPxNL3EC_QTshgLbfqSw' target='_blank'></a></li>
-    </ul>
-	</div>
-
   <div class="asteroids hidden">
-  <%= render('games/asteroids') %>
+  <%= render :partial => 'games/asteroids' %>
   </div>
 
   <div class="snake-game hidden">
-  <%= render('games/snakeGame') %>
+  <%= render :partial => 'games/snakeGame' %>
   </div>
 
 	<%= yield %>
@@ -331,13 +211,13 @@
 
   $("div.side-bar li").on("click", function (event) {
     $('html, body').animate({
-        scrollTop: $($("main div."+event.target.className).last()).offset().top
+      scrollTop: $($("main ."+event.target.className).last()).offset().top
     }, 300);
   });
 
-  $("div.next-section").on("click", function (event) {
+  $(".next-section-triangle").on("click", function (event) {
     $('html, body').animate({
-        scrollTop: $($("main div."+event.target.classList[1]).last()).offset().top
+      scrollTop: $("main .main-section."+$(event.currentTarget).data("next-section")).offset().top
     }, 300);
   });
 
@@ -443,7 +323,8 @@
   });
 
   var scrollFunc = function(sectionStr) {
-    var section = $("main div."+sectionStr).last();
+    var section = $("main ."+sectionStr).last();
+    console.log(section)
     if (section.offset().top <= $(window).scrollTop()) {
       var sectionHeight = section.offset().top + section.outerHeight() - $(window).scrollTop();
     } else if (section.offset().top + section.outerHeight() > $(window).scrollTop() + window.innerHeight) {
