@@ -37,16 +37,16 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'sqlite3'
-
 gem 'backbone-on-rails'
 
 gem 'tzinfo-data'
 
 group :production do
   gem 'rails_12factor'
+  gem 'pg'
 end
 
-group :development do
+group :development, :test do
   gem 'letter_opener'
+  gem 'sqlite3'
 end
