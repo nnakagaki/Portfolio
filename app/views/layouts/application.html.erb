@@ -45,16 +45,7 @@
 		<%= render :partial => 'shared/projects_section' %>
     <%= render :partial => 'shared/skills_section' %>
     <%= render :partial => 'shared/about_section' %>
-		<div class="contact">
-      <h1>Contact me</h1>
-      <form class="contact-me">
-        <input type="text" class="name" placeholder="Name">
-        <input type="text" class="email" placeholder="Email">
-        <textarea class="content" placeholder="Content"></textarea>
-        <input type="submit" value="Send">
-      </form>
-      <div class="message"></div>
-    </div>
+		<%= render :partial => 'shared/contact_me_section' %>
 	</main>
   </div>
 
@@ -324,7 +315,6 @@
 
   var scrollFunc = function(sectionStr) {
     var section = $("main ."+sectionStr).last();
-    console.log(section)
     if (section.offset().top <= $(window).scrollTop()) {
       var sectionHeight = section.offset().top + section.outerHeight() - $(window).scrollTop();
     } else if (section.offset().top + section.outerHeight() > $(window).scrollTop() + window.innerHeight) {
@@ -402,8 +392,7 @@
       $("main div.skills div.info").addClass("active");
       $("main div.skills div.info").html("<h2>"+event.currentTarget.classList[0]+"</h2><img src="+$(event.currentTarget).find("img")[0].src+"><div class='clear'></div>")
     }
-  })
-
+  });
 </script>
 
 </html>
