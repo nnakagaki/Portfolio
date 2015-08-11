@@ -75,134 +75,16 @@
     }
   });
 
-  var modalSetup = function () {
-    $("div.info-modal video").on("mouseenter", function (event) {
-      if (event.currentTarget.readyState === 4) {
-        event.currentTarget.play();
-      }
-    });
-
-    $("div.info-modal video").on("mouseleave", function (event) {
-      if (event.currentTarget.readyState === 4) {
-        event.currentTarget.pause();
-        event.currentTarget.currentTime = 0;
-      }
-    });
-
-    setTimeout(function () {
-      $("div.info-modal").removeClass("init")
-      $("div.info-modal").addClass("mid")
-
-      setTimeout(function () {
-        $("div.info-modal").removeClass("mid")
-        $("div.info-modal").addClass("final")
-      }, 500)
-    }, 100);
-
-    $("div.shadow").removeClass("hidden");
-    window.yCorrToReturnTo = $(window).scrollTop();
-    $("div.window").addClass("hide-overflow");
-  };
-
-  var videoUrls = {
+  Portfolio.ProjectsSection.videoUrls = {
     LLC       : "<%= video_url('LLC_demo.ogg') %>",
     princess  : "<%= video_url('princess_demo_test.ogg') %>",
     asteroids : "<%= video_url('asteroids_gameplay_editted2.ogg') %>",
     snake     : "<%= video_url('snake_gameplay_cropped.ogg') %>",
     trello    : "<%= video_url('trello_demo_cropped.ogg') %>",
     chess     : "<%= video_url('chess_demo.ogg') %>"
-  }
+  };
 
-  $("div.projects li.LLC").on("click", function (event) {
-    $("body").append(JST.LLC({
-      video_url : videoUrls.LLC
-    }));
-
-    $("div.info-modal div.iframe").on("click", function (event) {
-      $("body").append("<iframe class='LLC' src='https://life-long-connections.herokuapp.com'></iframe>");
-    });
-
-    modalSetup();
-  });
-
-  $("div.projects li.princess").on("click", function (event) {
-    if (event.target !== $("div.projects li.princess button.collaborators")[0]) {
-      $("body").append(JST.princess({
-        video_url : videoUrls.princess
-      }));
-
-      $("div.info-modal div.iframe").on("click", function (event) {
-        $("body").append("<iframe class='princess' src='https://princess-diary.herokuapp.com'></iframe>");
-      });
-
-      modalSetup();
-    }
-  });
-
-  $("div.projects li.asteroids div.front").on("click", function (event) {
-    if (event.target !== $("div.projects li.asteroids button.collaborators")[0]) {
-      $("body").append(JST.asteroids({
-        video_url : videoUrls.asteroids
-      }));
-
-      $("div.info-modal div.iframe").on("click", function (event) {
-        $("div.asteroids").removeClass("hidden");
-        $("div.info-modal").addClass("hidden");
-        Asteroids.Music.menuAudio.volume = 1;
-        Asteroids.Music.menuAudio.currentTime = 0;
-        Asteroids.Music.menuAudio.play();
-
-        $(window).on("keyup", function (event) {
-          if (event.keyCode === 13) {
-            toggleFullScreen($("div.asteroids")[0]);
-          }
-        })
-      });
-
-      modalSetup();
-    }
-  });
-
-  $("div.projects li.snake-game div.front").on("click", function (event) {
-    if (event.target !== $("div.projects li.snake-game button.collaborators")[0]) {
-      $("body").append(JST.snake({
-        video_url : videoUrls.snake
-      }));
-
-      $("div.info-modal div.iframe").on("click", function (event) {
-        $("div.snake-game").removeClass("hidden");
-        $("div.info-modal").addClass("hidden");
-      });
-
-      modalSetup();
-    }
-  });
-
-  $("div.projects li.trello").on("click", function (event) {
-    $("body").append(JST.trello({
-      video_url : videoUrls.trello
-    }));
-
-    $("div.info-modal div.iframe").on("click", function (event) {
-      $("body").append("<iframe class='trello' src='https://norris-trello-clone.herokuapp.com'></iframe>");
-    })
-
-    modalSetup();
-  });
-
-  $("div.projects li.chess").on("click", function (event) {
-    if (event.target !== $("div.projects li.chess button.collaborators")[0]) {
-      $("body").append(JST.chess({
-        video_url : videoUrls.chess
-      }));
-
-      $("div.info-modal div.iframe").on("click", function (event) {
-        $("body").append("<iframe class='trello' src='https://norris-trello-clone.herokuapp.com'></iframe>");
-      })
-
-      modalSetup();
-    }
-  });
+  Portfolio.ProjectsSection.initialize();
 
   $("div.shadow").on("click", function (event) {
     $("iframe").remove();
@@ -236,9 +118,9 @@
   $("form.contact-me").on("submit", function (event) {
     event.preventDefault();
 
-    var name = $("form.contact-me input.name").val();
-    var email = $("form.contact-me input.email").val();
-    var content = $("form.contact-me textarea").val();
+    var name    = $("form.contact-me input.name").val(),
+        email   = $("form.contact-me input.email").val(),
+        content = $("form.contact-me textarea").val();
 
     if (name === "") {
       $("div.contact div.message").append("Name cannot be empty! ");
@@ -362,31 +244,33 @@
   });
 
   if (isSafari) {
-    $("main div.projects ul li.LLC video")[0].src = "<%= video_url('LLC_demo.mp4') %>";
-    $("main div.projects ul li.asteroids video")[0].src = "<%= video_url('asteroids_gameplay_editted2.mp4') %>";
-    $("main div.projects ul li.princess video")[0].src = "<%= video_url('princess_demo_test.mp4') %>";
+    $("main div.projects ul li.LLC video")[0].src        = "<%= video_url('LLC_demo.mp4') %>";
+    $("main div.projects ul li.asteroids video")[0].src  = "<%= video_url('asteroids_gameplay_editted2.mp4') %>";
+    $("main div.projects ul li.princess video")[0].src   = "<%= video_url('princess_demo_test.mp4') %>";
     $("main div.projects ul li.snake-game video")[0].src = "<%= video_url('snake_gameplay_cropped.mp4') %>";
-    $("main div.projects ul li.trello video")[0].src = "<%= video_url('trello_demo_cropped.mp4') %>";
-    $("main div.projects ul li.chess video")[0].src = "<%= video_url('chess_demo.mp4') %>";
+    $("main div.projects ul li.trello video")[0].src     = "<%= video_url('trello_demo_cropped.mp4') %>";
+    $("main div.projects ul li.chess video")[0].src      = "<%= video_url('chess_demo.mp4') %>";
   }
 
   $("div.side-bar ul.links li a").on("mouseenter", function (event) {
     $(event.currentTarget).addClass("hover-animation");
-    var intLength = 2000
-    var intLength2 = 500
-    var timeoutFunc = function () {
-      heartbeat = setTimeout(function () {
-        intLength = intLength * 0.9;
-        intLength2 = intLength2 * 0.9;
-        $(event.currentTarget).addClass("add-contrast");
-        heartbeat2 = setTimeout(function () {
-          $(event.currentTarget).removeClass("add-contrast");
-        }, intLength2)
-        timeoutFunc()
-      }, intLength)
-    }
+    var intLength   = 2000,
+        intLength2  = 500,
+        timeoutFunc = function () {
+          heartbeat = setTimeout(function () {
+            intLength  = intLength * 0.9;
+            intLength2 = intLength2 * 0.9;
+            $(event.currentTarget).addClass("add-contrast");
 
-    timeoutFunc()
+            heartbeat2 = setTimeout(function () {
+              $(event.currentTarget).removeClass("add-contrast");
+            }, intLength2);
+
+            timeoutFunc();
+          }, intLength);
+        };
+
+    timeoutFunc();
   });
 
   $("div.side-bar ul.links li a").on("mouseleave", function (event) {
