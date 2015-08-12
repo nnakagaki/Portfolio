@@ -17,6 +17,9 @@
 //= require portfolio
 //= require utils
 //= require projectsSection
+//= require contactMeSection
+//= require skillsSection
+//= require sidebar
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

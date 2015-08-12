@@ -56,7 +56,7 @@ Portfolio.ProjectsSection = {
 
     $(window).on("keyup", function (event) {
       if (event.keyCode === 13) {
-        toggleFullScreen($(".asteroids")[0]);
+        Portfolio.utils.toggleFullScreen($(".asteroids")[0]);
       }
     });
   },

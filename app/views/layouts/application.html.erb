@@ -76,6 +76,9 @@
 
 <script>
   Portfolio.ProjectsSection.initialize();
+  Portfolio.ContactMeSection.initialize();
+  Portfolio.SkillsSection.initialize();
+  Portfolio.sidebar.initialize();
 
   $(".shadow").on("click", function (event) {
     $("iframe").remove();
@@ -94,171 +97,10 @@
     $(window).scrollTop(window.yCorrToReturnTo);
   });
 
-  $(".side-bar li").on("click", function (event) {
-    $('html, body').animate({
-      scrollTop: $($("main ."+event.target.className).last()).offset().top
-    }, 300);
-  });
-
   $(".next-section-triangle").on("click", function (event) {
     $('html, body').animate({
       scrollTop: $("main .main-section."+$(event.currentTarget).data("next-section")).offset().top
     }, 300);
-  });
-
-  $("form.contact-me").on("submit", function (event) {
-    event.preventDefault();
-
-    var name    = $("form.contact-me input.name").val(),
-        email   = $("form.contact-me input.email").val(),
-        content = $("form.contact-me textarea").val();
-
-    if (name === "") {
-      $(".contact div.message").append("Name cannot be empty! ");
-      setTimeout(function () {
-        $("div.contact div.message").html("");
-      }, 5000)
-    }
-
-    if (email === "") {
-      $(".contact div.message").append("Email cannot be empty! ");
-      setTimeout(function () {
-        $(".contact div.message").html("");
-      }, 5000)
-    }
-
-    if (content === "") {
-      $(".contact div.message").append("Content cannot be empty! ");
-      setTimeout(function () {
-        $(".contact div.message").html("");
-      }, 5000)
-    }
-
-    if ((name !== "") && (email !== "") && (content !== "")) {
-      $.ajax({
-        url: "/contact_me",
-        type: "GET",
-        data: {mail: {name: name, email: email, content: content}},
-        success: function (res) {
-          $("form.contact-me input.name").val("");
-          $("form.contact-me input.email").val("");
-          $("form.contact-me textarea").val("");
-          $("div.contact div.message").html("Email sent!");
-          setTimeout(function () {
-            $("div.contact div.message").html("");
-          }, 5000)
-        }
-      });
-    }
-  });
-</script>
-
-<script>
-  function toggleFullScreen(el) {
-    if (!document.fullscreenElement &&    // alternative standard method
-        !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
-      if (el.requestFullscreen) {
-        el.requestFullscreen();
-      } else if (el.msRequestFullscreen) {
-        el.msRequestFullscreen();
-      } else if (el.mozRequestFullScreen) {
-        el.mozRequestFullScreen();
-      } else if (el.webkitRequestFullscreen) {
-        document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-      }
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
-      } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-      }
-    }
-  }
-
-</script>
-
-<script>
-  $(".skills ul").css("width", Math.floor(($(".skills h1").width())/120) * 120);
-  $(window).on("resize", function (event) {
-    $(".skills ul").css("width", Math.floor(($(".skills h1").width())/120) * 120);
-  });
-
-  var scrollFunc = function(sectionStr) {
-    var section = $("main ."+sectionStr).last();
-    if (section.offset().top <= $(window).scrollTop()) {
-      var sectionHeight = section.offset().top + section.outerHeight() - $(window).scrollTop();
-    } else if (section.offset().top + section.outerHeight() > $(window).scrollTop() + window.innerHeight) {
-      var sectionHeight = $(window).scrollTop() + window.innerHeight - section.offset().top;
-    } else {
-      var sectionHeight = section.outerHeight();
-    }
-    var sectionColor = Math.floor(255 * (1 - sectionHeight/section.outerHeight()));
-    $(".side-bar ul li."+sectionStr).css("color", "rgb("+sectionColor+",255,"+sectionColor+")");
-  };
-
-  var scrollAllFunc = function () {
-    scrollFunc("intro");
-    scrollFunc("projects");
-    scrollFunc("skills");
-    scrollFunc("about");
-    scrollFunc("contact");
-  };
-
-  scrollAllFunc();
-
-  $(window).on("scroll", function(event) {
-    scrollAllFunc();
-  });
-
-  $("div.side-bar ul.links li a").on("mouseenter", function (event) {
-    $(event.currentTarget).addClass("hover-animation");
-    var intLength   = 2000,
-        intLength2  = 500,
-        timeoutFunc = function () {
-          heartbeat = setTimeout(function () {
-            intLength  = intLength * 0.9;
-            intLength2 = intLength2 * 0.9;
-            $(event.currentTarget).addClass("add-contrast");
-
-            heartbeat2 = setTimeout(function () {
-              $(event.currentTarget).removeClass("add-contrast");
-            }, intLength2);
-
-            timeoutFunc();
-          }, intLength);
-        };
-
-    timeoutFunc();
-  });
-
-  $(".side-bar ul.links li a").on("mouseleave", function (event) {
-    $(event.currentTarget).removeClass("hover-animation");
-    $(event.currentTarget).removeClass("add-contrast");
-    clearInterval(heartbeat);
-    clearTimeout(heartbeat2);
-  });
-
-  $("main .skills ul li").on("click", function (event) {
-    $('html, body').animate({
-        scrollTop: $($("main div.skills").last()).offset().top + 100
-    }, 300);
-
-    $("main .skills ul li").removeClass("selected");
-    $(event.currentTarget).addClass("selected");
-    if ($("main .skills .info.active").length > 0) {
-      $("main .skills .info").removeClass("active");
-      setTimeout(function() {
-        $("main .skills .info").addClass("active");
-        $("main .skills .info").html("<h2>"+event.currentTarget.classList[0]+"</h2><img src="+$(event.currentTarget).find("img")[0].src+"><div class='clear'></div>")
-      }, 500);
-    } else {
-      $("main .skills .info").addClass("active");
-      $("main .skills .info").html("<h2>"+event.currentTarget.classList[0]+"</h2><img src="+$(event.currentTarget).find("img")[0].src+"><div class='clear'></div>")
-    }
   });
 </script>
 
