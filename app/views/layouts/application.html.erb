@@ -27,6 +27,26 @@
     this.currentTime = 0;
     this.play();
   }, false);
+
+  if (Portfolio.utils.isSafari()) {
+    Portfolio.ProjectsSection.videoUrls = {
+      LLC       : "<%= video_url('LLC_demo.mp4') %>",
+      princess  : "<%= video_url('princess_demo_test.mp4') %>",
+      asteroids : "<%= video_url('asteroids_gameplay_editted2.mp4') %>",
+      snake     : "<%= video_url('snake_gameplay_cropped.mp4') %>",
+      trello    : "<%= video_url('trello_demo_cropped.mp4') %>",
+      chess     : "<%= video_url('chess_demo.mp4') %>"
+    };
+  } else {
+    Portfolio.ProjectsSection.videoUrls = {
+      LLC       : "<%= video_url('LLC_demo.ogg') %>",
+      princess  : "<%= video_url('princess_demo_test.ogg') %>",
+      asteroids : "<%= video_url('asteroids_gameplay_editted2.ogg') %>",
+      snake     : "<%= video_url('snake_gameplay_cropped.ogg') %>",
+      trello    : "<%= video_url('trello_demo_cropped.ogg') %>",
+      chess     : "<%= video_url('chess_demo.ogg') %>"
+    };
+  }
 </script>
 
 <body>
@@ -55,18 +75,9 @@
 </body>
 
 <script>
-  Portfolio.ProjectsSection.videoUrls = {
-    LLC       : "<%= video_url('LLC_demo.ogg') %>",
-    princess  : "<%= video_url('princess_demo_test.ogg') %>",
-    asteroids : "<%= video_url('asteroids_gameplay_editted2.ogg') %>",
-    snake     : "<%= video_url('snake_gameplay_cropped.ogg') %>",
-    trello    : "<%= video_url('trello_demo_cropped.ogg') %>",
-    chess     : "<%= video_url('chess_demo.ogg') %>"
-  };
-
   Portfolio.ProjectsSection.initialize();
 
-  $("div.shadow").on("click", function (event) {
+  $(".shadow").on("click", function (event) {
     $("iframe").remove();
     $(".info-modal").remove();
     $(event.currentTarget).addClass("hidden");
@@ -143,13 +154,6 @@
 </script>
 
 <script>
-  $("div.projects ul li").css("height", 51+$("div.projects ul li").width()*750/1250);
-  $("div.projects ul li div.back img").css("height", $("div.projects ul li").width()*750/1250);
-  $(window).on("resize", function (event) {
-    $("div.projects ul li").css("height", 51+$("div.projects ul li").width()*750/1250);
-    $("div.projects ul li div.back img").css("height", $("div.projects ul li").width()*750/1250);
-  })
-
   function toggleFullScreen(el) {
     if (!document.fullscreenElement &&    // alternative standard method
         !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
