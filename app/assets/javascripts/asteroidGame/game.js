@@ -4,20 +4,21 @@
   }
 
   var Game = Asteroids.Game = function (DIMX, DIMY) {
-    this.dimX = DIMX;
-    this.dimY = DIMY;
-    this.asteroids = [];
-    this.bullets = [];
-    this.makeShip();
-    this.score = 0;
-    this.lives = 5;
-    this.mode = 0;
+    this.dimX               = DIMX;
+    this.dimY               = DIMY;
+    this.asteroids          = [];
+    this.bullets            = [];
+    this.score              = 0;
+    this.lives              = 5;
+    this.mode               = 0;
     this.asteroidsDestroyed = 0;
-    this.shotsFired = 0;
-    this.bossAsteroid = [];
+    this.shotsFired         = 0;
+    this.bossAsteroid       = [];
     this.bossAsteroidActive = false;
-    this.bgImg = Asteroids.Images.menu;
-    this.bgCache = Asteroids.CacheCanvas.menu;
+    this.bgImg              = Asteroids.Images.menu;
+    this.bgCache            = Asteroids.CacheCanvas.menu;
+
+    this.makeShip();
   }
 
   Game.prototype.makeShip = function () {
