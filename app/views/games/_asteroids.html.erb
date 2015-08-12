@@ -38,8 +38,6 @@
   }, false);
 
   Asteroids.Music.visualize(Asteroids.Music.menuAudio);
-  Asteroids.Music.menuAudio.oncanplaythrough = Asteroids.Music.menuAudio.play();
-  Asteroids.Music.menuAudio.volume = 0;
 
   console.log("game init")
 
@@ -98,5 +96,5 @@
       this.play();
     }, false);
     ast.start();
-  })
+  });
 </script>
