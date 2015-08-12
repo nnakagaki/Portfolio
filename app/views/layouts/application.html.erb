@@ -27,13 +27,6 @@
     this.currentTime = 0;
     this.play();
   }, false);
-
-  var isSafari = false;
-
-  if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
-    isSafari = true;
-  }
-
 </script>
 
 <body>
@@ -62,19 +55,6 @@
 </body>
 
 <script>
-  $("video").on("mouseenter", function (event) {
-    if (event.currentTarget.readyState === 4) {
-      event.currentTarget.play();
-    }
-  });
-
-  $("video").on("mouseleave", function (event) {
-    if (event.currentTarget.readyState === 4) {
-      event.currentTarget.pause();
-      event.currentTarget.currentTime = 0;
-    }
-  });
-
   Portfolio.ProjectsSection.videoUrls = {
     LLC       : "<%= video_url('LLC_demo.ogg') %>",
     princess  : "<%= video_url('princess_demo_test.ogg') %>",
@@ -88,22 +68,22 @@
 
   $("div.shadow").on("click", function (event) {
     $("iframe").remove();
-    $("div.info-modal").remove();
+    $(".info-modal").remove();
     $(event.currentTarget).addClass("hidden");
-    $("div.window").removeClass("hide-overflow");
-    $("div.asteroids").addClass("hidden");
+    $(".window").removeClass("hide-overflow");
+    $(".asteroids").addClass("hidden");
     Asteroids.Music.menuAudio.pause();
     Asteroids.Music.menuAudio.currentTime = 0;
     if (typeof window.ast !== "undefined") {
       window.ast.closeGame();
     }
 
-    $("div.snake-game").addClass("hidden");
+    $(".snake-game").addClass("hidden");
 
     $(window).scrollTop(window.yCorrToReturnTo);
   });
 
-  $("div.side-bar li").on("click", function (event) {
+  $(".side-bar li").on("click", function (event) {
     $('html, body').animate({
       scrollTop: $($("main ."+event.target.className).last()).offset().top
     }, 300);
@@ -123,23 +103,23 @@
         content = $("form.contact-me textarea").val();
 
     if (name === "") {
-      $("div.contact div.message").append("Name cannot be empty! ");
+      $(".contact div.message").append("Name cannot be empty! ");
       setTimeout(function () {
         $("div.contact div.message").html("");
       }, 5000)
     }
 
     if (email === "") {
-      $("div.contact div.message").append("Email cannot be empty! ");
+      $(".contact div.message").append("Email cannot be empty! ");
       setTimeout(function () {
-        $("div.contact div.message").html("");
+        $(".contact div.message").html("");
       }, 5000)
     }
 
     if (content === "") {
-      $("div.contact div.message").append("Content cannot be empty! ");
+      $(".contact div.message").append("Content cannot be empty! ");
       setTimeout(function () {
-        $("div.contact div.message").html("");
+        $(".contact div.message").html("");
       }, 5000)
     }
 
@@ -160,19 +140,6 @@
       });
     }
   });
-
-  var collab = function () {
-    $("div.projects li button.collaborators").one("click", function (event) {
-      var projectName = event.target.parentElement.parentElement.className;
-      $("div.projects li."+projectName).addClass("flip");
-      setTimeout(function () {
-        $("div.projects li."+projectName).removeClass("flip");
-        collab();
-      }, 1500);
-    });
-  }
-
-  collab();
 </script>
 
 <script>
@@ -211,9 +178,9 @@
 </script>
 
 <script>
-  $("div.skills ul").css("width", Math.floor(($("div.skills h1").width())/120) * 120);
+  $(".skills ul").css("width", Math.floor(($(".skills h1").width())/120) * 120);
   $(window).on("resize", function (event) {
-    $("div.skills ul").css("width", Math.floor(($("div.skills h1").width())/120) * 120);
+    $(".skills ul").css("width", Math.floor(($(".skills h1").width())/120) * 120);
   });
 
   var scrollFunc = function(sectionStr) {
@@ -226,7 +193,7 @@
       var sectionHeight = section.outerHeight();
     }
     var sectionColor = Math.floor(255 * (1 - sectionHeight/section.outerHeight()));
-    $("div.side-bar ul li."+sectionStr).css("color", "rgb("+sectionColor+",255,"+sectionColor+")");
+    $(".side-bar ul li."+sectionStr).css("color", "rgb("+sectionColor+",255,"+sectionColor+")");
   };
 
   var scrollAllFunc = function () {
@@ -242,15 +209,6 @@
   $(window).on("scroll", function(event) {
     scrollAllFunc();
   });
-
-  if (isSafari) {
-    $("main div.projects ul li.LLC video")[0].src        = "<%= video_url('LLC_demo.mp4') %>";
-    $("main div.projects ul li.asteroids video")[0].src  = "<%= video_url('asteroids_gameplay_editted2.mp4') %>";
-    $("main div.projects ul li.princess video")[0].src   = "<%= video_url('princess_demo_test.mp4') %>";
-    $("main div.projects ul li.snake-game video")[0].src = "<%= video_url('snake_gameplay_cropped.mp4') %>";
-    $("main div.projects ul li.trello video")[0].src     = "<%= video_url('trello_demo_cropped.mp4') %>";
-    $("main div.projects ul li.chess video")[0].src      = "<%= video_url('chess_demo.mp4') %>";
-  }
 
   $("div.side-bar ul.links li a").on("mouseenter", function (event) {
     $(event.currentTarget).addClass("hover-animation");
@@ -273,29 +231,29 @@
     timeoutFunc();
   });
 
-  $("div.side-bar ul.links li a").on("mouseleave", function (event) {
+  $(".side-bar ul.links li a").on("mouseleave", function (event) {
     $(event.currentTarget).removeClass("hover-animation");
     $(event.currentTarget).removeClass("add-contrast");
     clearInterval(heartbeat);
     clearTimeout(heartbeat2);
   });
 
-  $("main div.skills ul li").on("click", function (event) {
+  $("main .skills ul li").on("click", function (event) {
     $('html, body').animate({
         scrollTop: $($("main div.skills").last()).offset().top + 100
     }, 300);
 
-    $("main div.skills ul li").removeClass("selected");
+    $("main .skills ul li").removeClass("selected");
     $(event.currentTarget).addClass("selected");
-    if ($("main div.skills div.info.active").length > 0) {
-      $("main div.skills div.info").removeClass("active");
+    if ($("main .skills .info.active").length > 0) {
+      $("main .skills .info").removeClass("active");
       setTimeout(function() {
-        $("main div.skills div.info").addClass("active");
-        $("main div.skills div.info").html("<h2>"+event.currentTarget.classList[0]+"</h2><img src="+$(event.currentTarget).find("img")[0].src+"><div class='clear'></div>")
+        $("main .skills .info").addClass("active");
+        $("main .skills .info").html("<h2>"+event.currentTarget.classList[0]+"</h2><img src="+$(event.currentTarget).find("img")[0].src+"><div class='clear'></div>")
       }, 500);
     } else {
-      $("main div.skills div.info").addClass("active");
-      $("main div.skills div.info").html("<h2>"+event.currentTarget.classList[0]+"</h2><img src="+$(event.currentTarget).find("img")[0].src+"><div class='clear'></div>")
+      $("main .skills .info").addClass("active");
+      $("main .skills .info").html("<h2>"+event.currentTarget.classList[0]+"</h2><img src="+$(event.currentTarget).find("img")[0].src+"><div class='clear'></div>")
     }
   });
 </script>

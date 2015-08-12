@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require portfolio
+//= require utils
 //= require projectsSection
 //= require_tree ../templates
 //= require_tree ./models
