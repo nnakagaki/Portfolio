@@ -20,6 +20,23 @@
 <h2 class="main-menu">Main Menu</h2>
 
 <script>
+  Asteroids.Images                  = {};
+  Asteroids.Images.menu             = new Image();
+  Asteroids.Images.menu.src         = "<%= image_url('outer-space.jpg') %>";
+  Asteroids.Images.gameMode2        = new Image();
+  Asteroids.Images.gameMode2.src    = "<%= image_url('island-noplanet.jpg') %>";
+  Asteroids.Images.hugeAsteroid     = new Image();
+  Asteroids.Images.hugeAsteroid.src = "<%= image_url('isflaksplanetResized.png') %>";
+
+  Asteroids.Music.gameAudio1 = new Audio("<%= audio_url('test.mp3') %>");
+  Asteroids.Music.gameAudio2 = new Audio("<%= audio_url('the-island-madeon-remix.mp3') %>");
+  Asteroids.Music.menuAudio  = new Audio("<%= audio_url('menu.mp3') %>");
+
+  Asteroids.Music.menuAudio.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+  }, false);
+
   Asteroids.Music.visualize(Asteroids.Music.menuAudio);
   Asteroids.Music.menuAudio.oncanplaythrough = Asteroids.Music.menuAudio.play();
   Asteroids.Music.menuAudio.volume = 0;
