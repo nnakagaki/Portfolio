@@ -59,9 +59,12 @@
 <script>
   $(window).load(function() {
     $(".js-hide-after-load").fadeOut(function() {
-      $(".js-show-after-load").css({ display: "none" }).removeClass("hidden").fadeIn(function() {
+      $(".js-show-after-load").css({ display: "none" }).removeClass("hidden").fadeIn(400);
+
+      window.setTimeout(function() {
         $(window).resize().scroll();
-      });
+        $(".js-show-after-load-delay").css({ display: "none" }).removeClass("hidden").fadeIn();
+      }, 0);
     });
   });
 
