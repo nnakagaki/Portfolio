@@ -20,28 +20,6 @@
   ga('send', 'pageview');
 </script>
 
-<script>
-  if (Portfolio.utils.isSafari()) {
-    Portfolio.ProjectsSection.videoUrls = {
-      LLC       : "<%= video_url('LLC_demo.mp4') %>",
-      princess  : "<%= video_url('princess_demo_test.mp4') %>",
-      asteroids : "<%= video_url('asteroids_gameplay_editted2.mp4') %>",
-      snake     : "<%= video_url('snake_gameplay_cropped.mp4') %>",
-      trello    : "<%= video_url('trello_demo_cropped.mp4') %>",
-      chess     : "<%= video_url('chess_demo.mp4') %>"
-    };
-  } else {
-    Portfolio.ProjectsSection.videoUrls = {
-      LLC       : "<%= video_url('LLC_demo.ogg') %>",
-      princess  : "<%= video_url('princess_demo_test.ogg') %>",
-      asteroids : "<%= video_url('asteroids_gameplay_editted2.ogg') %>",
-      snake     : "<%= video_url('snake_gameplay_cropped.ogg') %>",
-      trello    : "<%= video_url('trello_demo_cropped.ogg') %>",
-      chess     : "<%= video_url('chess_demo.ogg') %>"
-    };
-  }
-</script>
-
 <body>
   <!-- Google Tag Manager -->
   <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N4B54J"
@@ -52,9 +30,11 @@
   '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-N4B54J');</script>
   <!-- End Google Tag Manager -->
+  <%= render :partial => 'shared/loading_fullscreen' %>
+
   <%= render :partial => 'shared/sidebar' %>
   <div class="shadow hidden"></div>
-  <div class="window">
+  <div class="window js-show-after-load hidden">
   	<main>
   		<%= render :partial => 'shared/intro_section' %>
   		<%= render :partial => 'shared/projects_section' %>
@@ -77,6 +57,32 @@
 </body>
 
 <script>
+  $(window).load(function() {
+    $(".js-hide-after-load").fadeOut(function() {
+      $(".js-show-after-load").css({ display: "none" }).removeClass("hidden").fadeIn();
+    });
+  });
+
+  if (Portfolio.utils.isSafari()) {
+    Portfolio.ProjectsSection.videoUrls = {
+      LLC       : "<%= video_url('LLC_demo.mp4') %>",
+      princess  : "<%= video_url('princess_demo_test.mp4') %>",
+      asteroids : "<%= video_url('asteroids_gameplay_editted2.mp4') %>",
+      snake     : "<%= video_url('snake_gameplay_cropped.mp4') %>",
+      trello    : "<%= video_url('trello_demo_cropped.mp4') %>",
+      chess     : "<%= video_url('chess_demo.mp4') %>"
+    };
+  } else {
+    Portfolio.ProjectsSection.videoUrls = {
+      LLC       : "<%= video_url('LLC_demo.ogg') %>",
+      princess  : "<%= video_url('princess_demo_test.ogg') %>",
+      asteroids : "<%= video_url('asteroids_gameplay_editted2.ogg') %>",
+      snake     : "<%= video_url('snake_gameplay_cropped.ogg') %>",
+      trello    : "<%= video_url('trello_demo_cropped.ogg') %>",
+      chess     : "<%= video_url('chess_demo.ogg') %>"
+    };
+  }
+
   Portfolio.ProjectsSection.initialize();
   Portfolio.ContactMeSection.initialize();
   Portfolio.SkillsSection.initialize();
