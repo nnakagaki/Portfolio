@@ -9,6 +9,7 @@
 
   Asteroids.Music.visualize = function (audio) {
     console.log("in audio vis")
+    console.log(audio)
 
     var context  = new AudioContext(),
         analyser = context.createAnalyser(),

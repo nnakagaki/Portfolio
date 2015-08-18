@@ -11,17 +11,49 @@
 	width: 0;
 }
 
-.shadow {
+.fixed-full {
 	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.shadow {
 	z-index: 99;
-	height: 100vh;
-	width: 100vw;
 	background: rgba(0,0,0,0.75)
 }
 
 .window {
 	height: 100vh;
 	width: 100vw;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.float-right {
+	float: right;
+}
+
+.clearfix {
+  overflow: auto;
+  zoom: 1;
+}
+
+.vertical-center-wrapper {
+	display: table;
+	height: 100%;
+
+	.vertical-center-content {
+		display: table-cell;
+		vertical-align: middle;
+	}
 }
 
 .rotate {

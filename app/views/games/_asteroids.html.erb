@@ -37,8 +37,14 @@
     this.play();
   }, false);
 
-  Asteroids.Music.visualize(Asteroids.Music.menuAudio);
-
+  console.log(Asteroids.Music.menuAudio.readyState)
+  if (Asteroids.Music.menuAudio.readyState > 3) {
+    Asteroids.Music.visualize(Asteroids.Music.menuAudio);
+  } else {
+    $(Asteroids.Music.menuAudio).on('canplaythrough', function() {
+      Asteroids.Music.visualize(Asteroids.Music.menuAudio);
+    });
+  }
   console.log("game init")
 
   // misha mishenko - Vakning að elska
