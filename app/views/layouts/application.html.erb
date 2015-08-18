@@ -59,7 +59,9 @@
 
 <script>
   $(window).load(function() {
-    $(".js-hide-after-load").fadeOut();
+    window.setTimeout(function() {
+      $(".js-hide-after-load").fadeOut();
+    }, 1000);
   });
 
   if (Portfolio.utils.isSafari()) {
