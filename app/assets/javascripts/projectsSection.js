@@ -9,6 +9,8 @@ Portfolio.ProjectsSection = {
           snake     : this._snakeCallback
         };
 
+    this.audioVisualized = false;
+
     this._connectVideos();
 
     $(".js-project-block").on("click", function(event) {
@@ -48,6 +50,10 @@ Portfolio.ProjectsSection = {
     $(".info-modal").addClass("hidden");
     Asteroids.Music.menuAudio.volume = 1;
     Asteroids.Music.menuAudio.currentTime = 0;
+    if (!this.audioVisualized) {
+      Asteroids.Music.visualize(Asteroids.Music.menuAudio);
+      this.audioVisualized = true;
+    }
     Asteroids.Music.menuAudio.play();
 
     $(window).on("keyup", function (event) {
