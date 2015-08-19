@@ -93,7 +93,7 @@
           $("div.snake-game-view ul").remove();
           that.board = new SnakeGame.Board();
           that.preRender();
-          that.preSizing();
+          that.reSizing();
 
           that.run();
         })

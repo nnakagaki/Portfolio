@@ -45,7 +45,7 @@
   	</main>
   </div>
 
-  <div class="asteroids hidden">
+  <div class="js-asteroids-game asteroids-game hidden">
   <%= render :partial => 'games/asteroids' %>
   </div>
 
@@ -94,7 +94,7 @@
     $(".info-modal").remove();
     $(event.currentTarget).addClass("hidden");
     $(".window").removeClass("hide-overflow");
-    $(".asteroids").addClass("hidden");
+    $(".js-asteroids-game").addClass("hidden");
     Asteroids.Music.menuAudio.pause();
     Asteroids.Music.menuAudio.currentTime = 0;
     if (typeof window.ast !== "undefined") {

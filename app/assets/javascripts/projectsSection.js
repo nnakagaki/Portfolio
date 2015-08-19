@@ -31,10 +31,6 @@ Portfolio.ProjectsSection = {
 
     this._collab();
 
-    if (Portfolio.utils.isSafari()) {
-      this._ifSafari();
-    }
-
     Portfolio.utils.autoPlayVideo($("video"));
 
     this._resizeVideoAndImage();
@@ -48,7 +44,7 @@ Portfolio.ProjectsSection = {
   },
 
   _asteroidCallback: function(event) {
-    $(".asteroids").removeClass("hidden");
+    $(".js-asteroids-game").removeClass("hidden");
     $(".info-modal").addClass("hidden");
     Asteroids.Music.menuAudio.volume = 1;
     Asteroids.Music.menuAudio.currentTime = 0;
@@ -56,7 +52,7 @@ Portfolio.ProjectsSection = {
 
     $(window).on("keyup", function (event) {
       if (event.keyCode === 13) {
-        Portfolio.utils.toggleFullScreen($(".asteroids")[0]);
+        Portfolio.utils.toggleFullScreen($(".js-asteroids-game")[0]);
       }
     });
   },
