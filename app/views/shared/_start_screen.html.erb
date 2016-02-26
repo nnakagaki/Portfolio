@@ -22,10 +22,9 @@
 
 	Portfolio.currentBackground = _.sample(Portfolio.backgroundImages);
 	$(".js-start-screen").css("background-image", Portfolio.currentBackground);
-	setInterval(function() {
+	var bgInt = setInterval(function() {
 		Portfolio.currentBackground = _.sample(_.without(Portfolio.backgroundImages, Portfolio.currentBackground));
 		$(".js-start-screen").css("background-image", Portfolio.currentBackground);
-
 	}, 5000);
 
 	$(".ss-left-side, .ss-right-side").width(($(window).width() - $(window).height()*0.75)/2 - 25);
@@ -49,6 +48,8 @@
 			$(".js-start-screen").addClass("hidden");
 
 			$(".js-show-after-load").css({ display: "none" }).removeClass("hidden").fadeIn(400);
+
+			window.clearInterval(bgInt);
 
 	    window.setTimeout(function() {
 	      $(window).resize().scroll();
