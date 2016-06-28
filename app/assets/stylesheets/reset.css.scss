@@ -1,24 +1,24 @@
 body, div, h1, h2, p, ul, li, iframe, button, input {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font: inherit;
-	background: transparent;
-	text-decoration: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  background: transparent;
+  text-decoration: none;
 }
 
 :focus {
-	outline: none;
+  outline: none;
 }
 
 li {
-	list-style: none;
+  list-style: none;
 }
 
 body {
-	font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 a {
-	text-decoration: none
+  text-decoration: none
 }

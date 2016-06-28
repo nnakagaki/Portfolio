@@ -1,44 +1,44 @@
 .hidden {
-	display: none;
+  display: none;
 }
 
 .hide-overflow {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .clear {
-	clear: both;
-	width: 0;
+  clear: both;
+  width: 0;
 }
 
 .fixed-full {
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .shadow {
-	z-index: 99;
-	background: rgba(0,0,0,0.75)
+  z-index: 99;
+  background: rgba(0,0,0,0.75)
 }
 
 .window {
-	height: 100vh;
-	width: 100vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 .text-center {
-	text-align: center;
+  text-align: center;
 }
 
 .text-right {
-	text-align: right;
+  text-align: right;
 }
 
 .float-right {
-	float: right;
+  float: right;
 }
 
 .clearfix {
@@ -47,23 +47,23 @@
 }
 
 .vertical-center-wrapper {
-	display: table;
-	height: 100%;
+  display: table;
+  height: 100%;
 
-	.vertical-center-content {
-		display: table-cell;
-		vertical-align: middle;
-	}
+  .vertical-center-content {
+    display: table-cell;
+    vertical-align: middle;
+  }
 }
 
 .rotate {
-	-webkit-transform: rotate(-90deg);
-	-moz-transform: rotate(-90deg);
-	-ms-transform: rotate(-90deg);
-	-o-transform: rotate(-90deg);
-	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 .cursor-pointer {
-	cursor: pointer;
+  cursor: pointer;
 }

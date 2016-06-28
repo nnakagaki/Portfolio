@@ -1,11 +1,11 @@
 .start-screen {
-	background-repeat: no-repeat;
-	background-origin: border-box;
-	background-position: center;
-	background-size: contain;
-	background-color: black;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-position: center;
+  background-size: contain;
+  background-color: black;
 
-	-webkit-transition: background 400ms ease-in 2s; /* property duration timing-function delay */
+  -webkit-transition: background 400ms ease-in 2s; /* property duration timing-function delay */
   -moz-transition: background 400ms ease-in 2s;
   -o-transition: background 400ms ease-in 2s;
   transition: background 400ms ease-in 2s;
@@ -31,47 +31,47 @@
   transition-timing-function: ease-in;
   transition-delay: 200ms;
 
-	.ss-hello {
-		position: fixed;
-		width: 100%;
-		font-family: 'Righteous', cursive;
-		font-size: 50px;
-		text-align: center;
-		margin-top: 25px;
-		color: white;
-	}
+  .ss-hello {
+    position: fixed;
+    width: 100%;
+    font-family: 'Righteous', cursive;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 25px;
+    color: white;
+  }
 
-	.ss-left-side {
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		background: black;
-	}
+  .ss-left-side {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: black;
+  }
 
-	.ss-right-side {
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		right: 0;
-		background: black;
-	}
+  .ss-right-side {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: black;
+  }
 
-	.ss-work {
-		font-family: 'Righteous', cursive;
-		color: white;
-		font-size: 40px;
-		height: 100%;
-		padding: 0 15px;
-		white-space: nowrap;
-	}
+  .ss-work {
+    font-family: 'Righteous', cursive;
+    color: white;
+    font-size: 40px;
+    height: 100%;
+    padding: 0 15px;
+    white-space: nowrap;
+  }
 
-	.ss-personal {
-		font-family: 'Righteous', cursive;
-		color: white;
-		font-size: 40px;
-		height: 100%;
-		padding: 0 15px;
-		white-space: nowrap;
-	}
+  .ss-personal {
+    font-family: 'Righteous', cursive;
+    color: white;
+    font-size: 40px;
+    height: 100%;
+    padding: 0 15px;
+    white-space: nowrap;
+  }
 }

@@ -15,146 +15,146 @@
  */
 
 iframe {
-	z-index: 101;
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 80vh;
-	width: 80vw;
-	margin: 10vh 10vw 10vh 10vw;
-	border-radius: 10px;
+  z-index: 101;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80vh;
+  width: 80vw;
+  margin: 10vh 10vw 10vh 10vw;
+  border-radius: 10px;
 }
 
 .info-modal {
-	z-index: 100;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	border-radius: 10px;
-	background: white;
-	margin: auto;
-	transition: 0.5s;
-	overflow: hidden;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  background: white;
+  margin: auto;
+  transition: 0.5s;
+  overflow: hidden;
 
-	&.init {
-		height: 2vh;
-		width: 2vw;
-	}
+  &.init {
+    height: 2vh;
+    width: 2vw;
+  }
 
-	&.mid {
-		height: 2vh;
-		width: 80vw;
-	}
+  &.mid {
+    height: 2vh;
+    width: 80vw;
+  }
 
-	&.final {
-		height: 80vh;
-		width: 80vw;
-	}
+  &.final {
+    height: 80vh;
+    width: 80vw;
+  }
 
-	.content {
-		position: absolute;
-		top: 81px;
-		bottom: 0;
-		right: 0;
-		left: 0;
-		overflow-y: scroll;
-	}
+  .content {
+    position: absolute;
+    top: 81px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    overflow-y: scroll;
+  }
 
-	h1 {
-		font-family: 'Oswald', sans-serif;
-		font-size: 40px;
-		border-bottom: 1px solid rgb(150,150,150);
-		padding: 10px 20px 10px 20px;
-		background: rgb(200,255,200);
-	}
+  h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+    border-bottom: 1px solid rgb(150,150,150);
+    padding: 10px 20px 10px 20px;
+    background: rgb(200,255,200);
+  }
 
-	.right {
-		float: right;
-		height: auto;
-		width: 33%;
-		margin: 2%;
+  .right {
+    float: right;
+    height: auto;
+    width: 33%;
+    margin: 2%;
 
-		img {
-			width: 100%;
-			height: auto;
-		}
+    img {
+      width: 100%;
+      height: auto;
+    }
 
-		video {
-			width: 100%;
-			height: auto;
-		}
+    video {
+      width: 100%;
+      height: auto;
+    }
 
-		.github-link {
-			margin-top: 10px;
-			height: 38px;
-			position: relative;
+    .github-link {
+      margin-top: 10px;
+      height: 38px;
+      position: relative;
 
-			a {
-				position: absolute;
-				width: 38px;
-				margin: auto;
-				top: 0;
-				bottom: 0;
-				right: 0;
-				left: 0;
-				background-image: image-url('github.png');
-				background-repeat: no-repeat;
-				background-size: cover;
+      a {
+        position: absolute;
+        width: 38px;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-image: image-url('github.png');
+        background-repeat: no-repeat;
+        background-size: cover;
 
-				&:hover {
-					background-color: rgb(150,255,150);
-					border-radius: 50px;
-				}
-			}
-		}
+        &:hover {
+          background-color: rgb(150,255,150);
+          border-radius: 50px;
+        }
+      }
+    }
 
-		.iframe, .new-tab {
-			width: 96%;
-			padding: 10px 2% 10px 2%;
-			margin-top: 10px;
-			text-align: center;
-			background: linear-gradient(rgb(100,200,100),rgb(100,150,100));
-			border-radius: 10px;
-			color: white;
-			position: relative;
+    .iframe, .new-tab {
+      width: 96%;
+      padding: 10px 2% 10px 2%;
+      margin-top: 10px;
+      text-align: center;
+      background: linear-gradient(rgb(100,200,100),rgb(100,150,100));
+      border-radius: 10px;
+      color: white;
+      position: relative;
 
-			&:hover {
-				cursor: pointer;
-			}
+      &:hover {
+        cursor: pointer;
+      }
 
-			a {
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				right: 0;
-			}
-		}
-	}
+      a {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
 
-	p {
-		margin: 2%;
-		font-size: 20px;
-		line-height: 1.7;
+  p {
+    margin: 2%;
+    font-size: 20px;
+    line-height: 1.7;
 
-		&.features {
-			margin-bottom: 0;
-			color: rgb(50,150,50);
-			font-weight: bold;
-		}
-	}
+    &.features {
+      margin-bottom: 0;
+      color: rgb(50,150,50);
+      font-weight: bold;
+    }
+  }
 
-	ul {
-		font-size: 20px;
-		list-style: disc outside none;
-		margin: 5px 0 0 50px;
-		padding-bottom: 30px;
+  ul {
+    font-size: 20px;
+    list-style: disc outside none;
+    margin: 5px 0 0 50px;
+    padding-bottom: 30px;
 
-		li {
-			margin: 5px 0 5px 0;
-			list-style: disc outside none;
-		}
-	}
+    li {
+      margin: 5px 0 5px 0;
+      list-style: disc outside none;
+    }
+  }
 }
