@@ -1,68 +1,68 @@
 <div class="start-screen js-start-screen fixed-full">
-	<div class="ss-hello">Hi! I'm Norris</div>
-	<div class="ss-left-side">
-		<div class="vertical-center-wrapper">
-			<div class="ss-work vertical-center-content">Work &#10097;&#10097;</div>
-		</div>
-	</div>
-	<div class="ss-right-side">
-		<div class="vertical-center-wrapper float-right">
-			<div class="ss-personal vertical-center-content">&#10096;&#10096; Life</div>
-		</div>
-	</div>
+  <div class="ss-hello">Hi! I'm Norris</div>
+  <div class="ss-left-side">
+    <div class="vertical-center-wrapper">
+      <div class="ss-work vertical-center-content"><span class="cursor-pointer js-work">Work &#10097;&#10097;</span></div>
+    </div>
+  </div>
+  <div class="ss-right-side">
+    <div class="vertical-center-wrapper float-right">
+      <div class="ss-personal vertical-center-content"><span class="cursor-pointer js-life">&#10096;&#10096; Life</span></div>
+    </div>
+  </div>
 </div>
 
 <script>
-	Portfolio.backgroundImages = [
-		'url(' + '<%= image_path("norris/after_dance.jpg") %>' + ')',
-		'url(' + '<%= image_path("norris/pingpong.jpg") %>' + ')',
-		'url(' + '<%= image_path("norris/sephora.jpg") %>' + ')',
-		'url(' + '<%= image_path("norris/city_view.jpg") %>' + ')'
-	];
+  Portfolio.backgroundImages = [
+    'url(' + '<%= image_path("norris/after_dance.jpg") %>' + ')',
+    'url(' + '<%= image_path("norris/pingpong.jpg") %>' + ')',
+    'url(' + '<%= image_path("norris/sephora.jpg") %>' + ')',
+    'url(' + '<%= image_path("norris/city_view.jpg") %>' + ')'
+  ];
 
-	Portfolio.currentBackground = _.sample(Portfolio.backgroundImages);
-	$(".js-start-screen").css("background-image", Portfolio.currentBackground);
-	var bgInt = setInterval(function() {
-		Portfolio.currentBackground = _.sample(_.without(Portfolio.backgroundImages, Portfolio.currentBackground));
-		$(".js-start-screen").css("background-image", Portfolio.currentBackground);
-	}, 5000);
+  Portfolio.currentBackground = _.sample(Portfolio.backgroundImages);
+  $(".js-start-screen").css("background-image", Portfolio.currentBackground);
+  var bgInt = setInterval(function() {
+    Portfolio.currentBackground = _.sample(_.without(Portfolio.backgroundImages, Portfolio.currentBackground));
+    $(".js-start-screen").css("background-image", Portfolio.currentBackground);
+  }, 5000);
 
-	$(".ss-left-side, .ss-right-side").width(($(window).width() - $(window).height()*0.75)/2 - 25);
-	$(window).on("resize", function() {
-		_.debounce(function() {
-			$(".ss-left-side, .ss-right-side").width(($(window).width() - $(window).height()*0.75)/2 - 25);
-		}, 150)();
-	});
+  $(".ss-left-side, .ss-right-side").width(($(window).width() - $(window).height()*0.75)/2 - 25);
+  $(window).on("resize", function() {
+    _.debounce(function() {
+      $(".ss-left-side, .ss-right-side").width(($(window).width() - $(window).height()*0.75)/2 - 25);
+    }, 150)();
+  });
 
-	$(".ss-work").on("mouseenter", function(event) {
-		$(event.target).animate({ "padding-left" : 40 }, 200);
-	});
+  $(".js-work").on("mouseenter", function(event) {
+    $(event.target).animate({ "padding-left" : 40 }, 200);
+  });
 
-	$(".ss-work").on("mouseleave", function(event) {
-		$(event.target).animate({ "padding-left" : 15 }, 200);
-	});
+  $(".js-work").on("mouseleave", function(event) {
+    $(event.target).animate({ "padding-left" : 15 }, 200);
+  });
 
-	$(".ss-work, .ss-personal").on("click", function() {
-		$(".ss-work").off();
-		$(".js-start-screen").fadeOut(function() {
-			$(".js-start-screen").addClass("hidden");
+  $(".js-work, .js-life").on("click", function() {
+    $(".js-work").off();
+    $(".js-start-screen").fadeOut(function() {
+      $(".js-start-screen").addClass("hidden");
 
-			$(".js-show-after-load").css({ display: "none" }).removeClass("hidden").fadeIn(400);
+      $(".js-show-after-load").css({ display: "none" }).removeClass("hidden").fadeIn(400);
 
-			window.clearInterval(bgInt);
+      window.clearInterval(bgInt);
 
-	    window.setTimeout(function() {
-	      $(window).resize().scroll();
-	      $(".js-show-after-load-delay").css({ display: "none" }).removeClass("hidden").fadeIn();
-	    }, 0);
-		});
-	});
+      window.setTimeout(function() {
+        $(window).resize().scroll();
+        $(".js-show-after-load-delay").css({ display: "none" }).removeClass("hidden").fadeIn();
+      }, 0);
+    });
+  });
 
-	$(".ss-personal").on("mouseenter", function(event) {
-		$(event.target).animate({ "padding-right" : 40 }, 200);
-	});
+  $(".js-life").on("mouseenter", function(event) {
+    $(event.target).animate({ "padding-right" : 40 }, 200);
+  });
 
-	$(".ss-personal").on("mouseleave", function(event) {
-		$(event.target).animate({ "padding-right" : 15 }, 200);
-	});
+  $(".js-life").on("mouseleave", function(event) {
+    $(event.target).animate({ "padding-right" : 15 }, 200);
+  });
 </script>
