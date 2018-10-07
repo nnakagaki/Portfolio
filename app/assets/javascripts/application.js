@@ -20,10 +20,6 @@
 //= require skillsSection
 //= require sidebar
 //= require_tree ../templates
-//= require_tree ./models
-//= require_tree ./collections
-//= require_tree ./views
-//= require_tree ./routers
 //= require ./asteroidGame/utils.js
 //= require ./asteroidGame/movingObject.js
 //= require_tree ./asteroidGame
