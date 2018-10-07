@@ -12,8 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require underscore
-//= require backbone
+//= require lodash
 //= require portfolio
 //= require utils
 //= require projectsSection
