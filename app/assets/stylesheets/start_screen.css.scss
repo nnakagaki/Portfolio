@@ -66,6 +66,14 @@
     white-space: nowrap;
   }
 
+  .ss-work-span {
+    transition: padding 0.3s;
+  }
+
+  .ss-more-padding {
+    padding: 0 40px;
+  }
+
   .ss-personal {
     font-family: 'Righteous', cursive;
     color: white;
@@ -73,5 +81,9 @@
     height: 100%;
     padding: 0 15px;
     white-space: nowrap;
+  }
+
+  .ss-personal-span {
+    transition: padding 0.3s;
   }
 }

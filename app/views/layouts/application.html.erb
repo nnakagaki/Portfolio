@@ -38,8 +38,6 @@
   '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-N4B54J');</script>
   <!-- End Google Tag Manager -->
-  <%= render :partial => 'shared/loading_fullscreen' %>
-  <%= render :partial => 'shared/start_screen' %>
 
   <%= render :partial => 'shared/sidebar' %>
   <div class="fixed-full shadow hidden"></div>
@@ -64,6 +62,15 @@
 	<%= yield %>
 
 </body>
+
+<script>
+  $(".ss-left-side, .ss-right-side").width(($(window).width() - $(window).height()*0.75)/2 - 25);
+  $(window).on("resize", function() {
+    _.debounce(function() {
+      $(".ss-left-side, .ss-right-side").width(($(window).width() - $(window).height()*0.75)/2 - 25);
+    }, 150)();
+  });
+</script>
 
 <script>
   $(window).load(function() {
