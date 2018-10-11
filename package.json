@@ -6,6 +6,9 @@
   "repository": "git@github.com:nnakagaki/Portfolio.git",
   "author": "Norris Nakagaki <norrisnakagaki@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "yarn": ">= 0.25.2"
+  },
   "dependencies": {
     "@rails/webpacker": "3.5",
     "babel-preset-react": "6.24.1",
