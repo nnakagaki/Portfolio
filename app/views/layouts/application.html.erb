@@ -9,7 +9,7 @@
       background-position: center;
     }
   </style>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_pack_tag 'hello_react' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -39,7 +39,6 @@
   })(window,document,'script','dataLayer','GTM-N4B54J');</script>
   <!-- End Google Tag Manager -->
 
-  <%= render :partial => 'shared/sidebar' %>
   <div class="fixed-full shadow hidden"></div>
   <div class="window js-show-after-load hidden">
   	<main>
@@ -64,14 +63,8 @@
 </body>
 
 <script>
-  $(window).on("resize", function() {
-    _.debounce(function() {
-      $(".ss-left-side, .ss-right-side").width(($(window).width() - $(window).height()*0.75)/2 - 25);
-    }, 150)();
-  });
-</script>
+  window.imageUrl = "<%= image_url("norris-nakagaki-cropped.png") %>";
 
-<script>
   if (Portfolio.utils.isSafari()) {
     Portfolio.ProjectsSection.videoUrls = {
       LLC       : "<%= video_url('LLC_demo.mp4') %>",

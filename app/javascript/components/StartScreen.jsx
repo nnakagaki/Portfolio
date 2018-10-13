@@ -50,6 +50,10 @@ export default class StartScreen extends PureComponent {
   }
 
   toNextScreen() {
+    const { loadMainScreen } = this.props;
+
+    loadMainScreen();
+
     $(".js-work").off();
     $(".js-start-screen").fadeOut(() => {
       $(".js-start-screen").addClass("hidden");

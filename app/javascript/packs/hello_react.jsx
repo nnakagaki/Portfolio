@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 import FlareLoading from '../components/FlareLoading';
 import StartScreen from '../components/StartScreen';
+import Sidebar from '../components/Sidebar';
 
 const duration = 300;
 
@@ -21,10 +22,12 @@ class Application extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      loading : true
+      loading    : true,
+      mainScreen : false
     };
 
     this.documentLoadHandle();
+    this.loadMainScreen = this.loadMainScreen.bind(this);
   }
 
   documentLoadHandle() {
@@ -35,12 +38,17 @@ class Application extends PureComponent {
     });
   }
 
+  loadMainScreen() {
+    this.setState({ mainScreen : true })
+  }
+
   render() {
-    const { loading } = this.state;
+    const { loading, mainScreen } = this.state;
 
     return (
       <div>
         <Transition
+          unmountOnExit
           in={loading}
           timeout={300}
         >
@@ -54,6 +62,8 @@ class Application extends PureComponent {
           )}
         </Transition>
         <Transition
+          mountOnEnter
+          unmountOnExit
           in={!loading}
           timeout={300}
         >
@@ -62,7 +72,21 @@ class Application extends PureComponent {
               ...defaultStyle,
               ...transitionStyles[state]
             }}>
-              <StartScreen />
+              <StartScreen loadMainScreen={this.loadMainScreen} />
+            </div>
+          )}
+        </Transition>
+        <Transition
+          mountOnEnter
+          in={mainScreen}
+          timeout={300}
+        >
+          {(state) => (
+            <div style={{
+              ...defaultStyle,
+              ...transitionStyles[state]
+            }}>
+              <Sidebar imageUrl={window.imageUrl} />
             </div>
           )}
         </Transition>
