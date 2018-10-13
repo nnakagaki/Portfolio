@@ -54,28 +54,18 @@ export default class StartScreen extends PureComponent {
 
     loadMainScreen();
 
-    $(".js-work").off();
-    $(".js-start-screen").fadeOut(() => {
-      $(".js-start-screen").addClass("hidden");
+    $(".js-show-after-load").css({ display: "none" }).removeClass("hidden").fadeIn(400);
 
-      $(".js-show-after-load").css({ display: "none" }).removeClass("hidden").fadeIn(400);
-
-      window.clearInterval(this.rotateImageInterval);
-
-      window.setTimeout(() => {
-        $(window).resize().scroll();
-        $(".js-show-after-load-delay").css({ display: "none" }).removeClass("hidden").fadeIn();
-      }, 0);
-    });
+    window.clearInterval(this.rotateImageInterval);
   }
 
   render() {
     const { imageClass, workExtraPadding, personalExtraPadding } = this.state;
-    const startScreenClassName = classNames('js-start-screen start-screen fixed-full', imageClass);
-    const workClassName = classNames('js-work cursor-pointer ss-work-span', {
+    const startScreenClassName = classNames('start-screen fixed-full', imageClass);
+    const workClassName = classNames('cursor-pointer ss-work-span', {
       'ss-more-padding' : workExtraPadding
     });
-    const personalClassName = classNames('js-life cursor-pointer ss-personal-span', {
+    const personalClassName = classNames('cursor-pointer ss-personal-span', {
       'ss-more-padding' : personalExtraPadding
     });
 

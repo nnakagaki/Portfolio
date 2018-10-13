@@ -64,7 +64,7 @@ class Application extends PureComponent {
         <Transition
           mountOnEnter
           unmountOnExit
-          in={!loading}
+          in={!loading && !mainScreen}
           timeout={300}
         >
           {(state) => (
